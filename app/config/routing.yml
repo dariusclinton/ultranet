@@ -1,0 +1,4 @@
+utranet_core:
+    resource: "@UtranetCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+

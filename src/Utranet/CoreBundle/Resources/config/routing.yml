@@ -1,0 +1,3 @@
+utranet_core_homepage:
+    path:     /
+    defaults: { _controller: UtranetCoreBundle:Default:index }
