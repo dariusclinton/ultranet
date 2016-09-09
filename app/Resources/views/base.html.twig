@@ -15,10 +15,20 @@
 
             <!-- Custom CSS -->
             <link href=" {{ asset('css/modern-business.css') }}" rel="stylesheet">
+            
+            <!-- Revolution Slider CSS -->
+            <link href=" {{ asset('revel/settings.css') }}" rel="stylesheet">
+            
+            <!-- Animate CSS -->
+            <link href=" {{ asset('css/animate.css') }}" rel="stylesheet">
 
             <!-- Custom Fonts -->
             <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
+            
+            
+            <!-- Ultranet CSS -->
+            <link href=" {{ asset('css/ultranet.css') }}" rel="stylesheet">
+            
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
             <!--[if lt IE 9]>
@@ -29,19 +39,29 @@
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    
+
     <body>
     {% block body %}{% endblock %}
 
     {% block javascripts %}
         <!-- jQuery -->
-        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        
+
         <!-- Bootstrap Validator JavaScript -->
         <script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
+
+        <!-- Revolution Slider JS -->
+        <script src="{{ asset('revel/jquery.themepunch.tools.min.js') }}"></script>
+        <script src="{{ asset('revel/jquery.themepunch.revolution.min.js') }}"></script>
+        <script src="{{ asset('revel/revolution.extension.layeranimation.min.js') }}"></script>
+        <script src="{{ asset('revel/revolution.extension.navigation.min.js') }}"></script>
+        <script src="{{ asset('revel/revolution.extension.slideanims.min.js') }}"></script>
+        
+        <!-- Own JavaScript -->
+        <script src="{{ asset('js/ultranet.js') }}"></script>
     {% endblock %}
-</body>
+    </body>
 </html>

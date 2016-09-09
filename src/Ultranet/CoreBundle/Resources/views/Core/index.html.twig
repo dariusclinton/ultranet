@@ -1,4 +1,120 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     {% include 'UltranetCoreBundle:Includes:header.html.twig' %}
+    {% include 'UltranetCoreBundle:Includes:banner.html.twig' %}
+
+    <div width="100%" id="content-body" style="background:url(' {{asset('images/image_2.gif') }} ')">
+        <div class="container">
+            <!-- Marketing Icons Section -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="page-header">
+                        Nos formations
+                    </h1>
+                </div>
+            </div>
+            <div class="row formation">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Lire plus ...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Lire plus ...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Lire plus ...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row formation">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Lire plus ...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Lire plus ...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Lire plus ...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="page-header">
+                        Pourquoi choisir Ultranet ?
+                    </h1>
+                </div>
+                <div class="col-md-4">
+                    <div class="why">
+                        <i class="fa fa-book fa-5x"></i>
+                        <span class="why-desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="why">
+                        <i class="fa fa-umbrella fa-5x"></i>
+                        <span class="why-desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="why">
+                        <i class="fa fa-flag fa-5x"></i>
+                        <span class="why-desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{#    {% include 'UltranetCoreBundle:Includes:newsletter.html.twig' %}#}
+    {% include 'UltranetCoreBundle:Includes:footer.html.twig' %}
 {% endblock %}
