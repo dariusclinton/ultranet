@@ -1,0 +1,16 @@
+{# src/OC/UserBundle/Resources/views/layout.html.twig #}
+{% extends "::base.html.twig" %}
+{% block body %}
+    {% include 'UltranetCoreBundle:Includes:header.html.twig' %}
+    {% for key, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="alert alert-{{ key }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+    {% include 'UltranetCoreBundle:Includes:footer.html.twig' %}
+{% endblock %}

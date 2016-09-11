@@ -9,6 +9,38 @@ and open the template in the editor.
 */
 
 // ivano dev custum style for card
+a.btn:hover{
+    text-decoration: none !important;
+}
+.navbar-custom {
+    background-color: rgba(1, 255, 70,1);
+    color:#ffffff;
+    border-radius:0;
+    
+}
+.navbar-custom .navbar{
+    background-color: rgba(1, 255,70,1) !important;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+/*.navbar-custom .navbar{
+    background-color: rgba(0,0,0,0.3) !important;
+    color: white !important;
+}*/
+.navbar-custom .navbar-nav > li > a {
+    color: #0277bd;
+    font-size: 1.3em;
+}
+.navbar-custom .navbar-nav > li > a:hover {
+    background-color:rgba(0,0,0,0.1);
+    color: white;
+    transition: 0.5s;
+}
+.navbar-custom .navbar-nav > li > a.active {
+    background-color:rgba(0,0,0,0.1);
+    color: white;
+}
+
 #content-body .row.formation{
     padding: 50px;
     color:  red !important;
@@ -29,7 +61,7 @@ and open the template in the editor.
 .card-block {
     padding: 1.25rem;
     /*width: 320px;*/
-    //background: rgba(1, 255, 70,1);
+    /* background: rgba(1, 255, 70,1); */
     background: #e0e0e0;
     color: #424242;
 }
@@ -404,10 +436,11 @@ and open the template in the editor.
 /*footer*/
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
-footer { 
+.footer { 
     background-color:#0c1a1e; 
     min-height:350px; 
     font-family: 'Open Sans', sans-serif; 
+    border: none !important;
 }
 .footerleft { 
     margin-top:50px; 
@@ -519,4 +552,17 @@ footer {
 .bottom_ul li a {
     color:#FFF;  
     font-size:12px;
+}
+
+.share{
+    margin-right: 30px;
+}
+.share.fb:hover{
+    color: red;
+}
+.share.tw:hover{
+    color: red;
+}
+.share.in:hover{
+    color: red;
 }

@@ -1,0 +1,10 @@
+{% extends "UltranetUserBundle::layout.html.twig" %}
+{% block title %}
+  connexion - {{ parent() }}
+{% endblock %}
+
+{% block fos_user_content %}
+	{% trans_default_domain 'FOSUserBundle' %}
+    {{ include('FOSUserBundle:Security:login_content.html.twig') }}
+{% endblock fos_user_content %}
+
