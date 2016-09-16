@@ -11,6 +11,9 @@
 
         {% block stylesheets %}
             <!-- Bootstrap Core CSS -->
+            <link href="{{ asset('jquery-ui-1.12.0/jquery-ui.min.css') }}" rel="stylesheet" />
+            
+            <!-- Jquery UI Core CSS -->
             <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
 
             <!-- Custom CSS -->
@@ -40,7 +43,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
-    <body>
+    <body style="background:url(' {{asset('images/image_2.gif') }} ')">
     {% block body %}{% endblock %}
 
     {% block javascripts %}
@@ -52,6 +55,9 @@
 
         <!-- Bootstrap Validator JavaScript -->
         <script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
+
+        <!-- Jquery UI Core JavaScript -->
+        <script src="{{ asset('jquery-ui-1.12.0/jquery-ui.min.js') }}"></script>
 
         <!-- Revolution Slider JS -->
         <script src="{{ asset('revel/jquery.themepunch.tools.min.js') }}"></script>

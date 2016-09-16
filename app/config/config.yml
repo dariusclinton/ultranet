@@ -93,4 +93,4 @@ fos_user:
             from_email:
                 address:        loickapatue@yahoo.fr
                 sender_name:    Ultranet
-            template:   UltranetUserBundle:Registration:email.txt.twig
+            template:   UltranetUserBundle:Resetting:email.txt.twig

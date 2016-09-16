@@ -1,10 +1,19 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "UltranetUserBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
-    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align:center">
+                <p>{{ 'registration.confirmed'|trans({'%username%': user.subnames~ "  " ~user.name}) }}</p>
+                <p>voir votre profile <a href="{{ path('fos_user_profile_show')_ }}">ici !!!</a></p>
+            </div>
+            <div class="col-md-12" style="text-align:center">
+                {% if targetUrl %}
+                    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock fos_user_content %}

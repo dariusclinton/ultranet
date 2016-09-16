@@ -1,5 +1,5 @@
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    resource: "@UltranetUserBundle/Resources/routing/all.xml"
 
 ultranet_user:
     resource: "@UltranetUserBundle/Resources/config/routing.yml"

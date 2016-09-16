@@ -1,7 +1,14 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "UltranetUserBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center">
+				<p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+			</div>
+		</div>
+	</div>
+    
 {% endblock fos_user_content %}

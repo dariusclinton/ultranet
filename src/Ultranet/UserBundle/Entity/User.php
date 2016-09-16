@@ -2,16 +2,18 @@
 
 namespace Ultranet\UserBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="ultranet_user")
  * @ORM\Entity(repositoryClass="Ultranet\UserBundle\Repository\UserRepository")
  */
-class User extends BaseUser {
+class User extends BaseUser implements UserInterface {
 
     /**
      * @var int
@@ -72,15 +74,44 @@ class User extends BaseUser {
     protected $slug;
 
     /**
-     * Constructor
+     * @var \Datetime
+     *
+     * @ORM\Column(name="created_date", type="datetime", nullable=true)
      */
+    private $createdDate;
+
+    /**
+     * @var Ultranet\UserBundle\Entity\Image
+     * 
+     * @ORM\OneToOne(targetEntity="Ultranet\UserBundle\Entity\Image", cascade={ "persist", "remove" })
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $image;
+
+    /**
+     * @var Ultranet\UserBundle\Entity\Institution
+     * 
+     * @ORM\ManyToOne(targetEntity="Ultranet\UserBundle\Entity\Institution", inversedBy="users")
+     */
+    protected $institution;
+
+    /**
+     * @var Ultranet\CoreBundle\Entity\Schedule
+     * 
+     * @ORM\OneToMany(targetEntity="Ultranet\CoreBundle\Entity\Schedule", mappedBy="user", cascade={"persist","remove"})
+     */
+    private $schedules;
+
     public function __construct() {
         parent::__construct();
+        $this->schedules = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function setEmail($email) {
-        parent::setEmail($email);
-        $this->setUsername($email);
+        if (is_null($this->getUsername())) {
+            $this->setUsername(uniqid());
+        }
+        return parent::setEmail($email);
     }
 
     /**
@@ -237,4 +268,103 @@ class User extends BaseUser {
         return $this->slug;
     }
 
+    /**
+     * Set image
+     *
+     * @param \Ultranet\UserBundle\Entity\Image $image
+     *
+     * @return User
+     */
+    public function setImage(\Ultranet\UserBundle\Entity\Image $image = null) {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Ultranet\UserBundle\Entity\Image
+     */
+    public function getImage() {
+        return $this->image;
+    }
+
+    /**
+     * Set institution
+     *
+     * @param \Ultranet\UserBundle\Entity\Institution $institution
+     *
+     * @return User
+     */
+    public function setInstitution(\Ultranet\UserBundle\Entity\Institution $institution = null) {
+        $this->institution = $institution;
+
+        return $this;
+    }
+
+    /**
+     * Get institution
+     *
+     * @return \Ultranet\UserBundle\Entity\Institution
+     */
+    public function getInstitution() {
+        return $this->institution;
+    }
+
+    /**
+     * Add schedule
+     *
+     * @param \Ultranet\CoreBundle\Entity\Schedule $schedule
+     *
+     * @return User
+     */
+    public function addSchedule(\Ultranet\CoreBundle\Entity\Schedule $schedule) {
+        $this->schedules[] = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * Remove schedule
+     *
+     * @param \Ultranet\CoreBundle\Entity\Schedule $schedule
+     */
+    public function removeSchedule(\Ultranet\CoreBundle\Entity\Schedule $schedule) {
+        $this->schedules->removeElement($schedule);
+    }
+
+    /**
+     * Get schedules
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSchedules() {
+        return $this->schedules;
+    }
+
+
+    /**
+     * Set createdDate
+     *
+     * @param \DateTime $createdDate
+     *
+     * @return User
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->createdDate = $createdDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createdDate
+     *
+     * @return \DateTime
+     */
+    public function getCreatedDate()
+    {
+        return $this->createdDate;
+    }
 }

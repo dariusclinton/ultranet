@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <div id="navigation" class="navbar-custom">
-    <nav class="navbar navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
         <div class="">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -17,7 +17,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href=" {{path('ultranet_core_homepage')}} " class="active">Accueil</a>
+                        <a href=" {{path('ultranet_core_homepage')}} " class=" {% if app.request.attributes.get('_route') == 'ultranet_core_homepage' %}active{% endif %} ">Accueil</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
@@ -34,16 +34,16 @@
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{app.user.name}} <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="{% if app.request.attributes.get('_route') == 'fos_user_profile_show' or app.request.attributes.get('_route') == 'fos_user_profile_edit'  %}active{% endif %}">{{app.user.name}} <b class="fa fa-caret-down"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href=" {{path('fos_user_security_logout')}} ">Se déconnecter</a>
                                 </li>
                                 <li>
-                                    <a href="blog-home-2.html"> profile </a>
+                                    <a href=" {{ path('fos_user_profile_show') }} "> profile </a>
                                 </li>
                                 <li>
-                                    <a href="blog-post.html">Blog Post</a>
+                                    <a href="">Formations</a>
                                 </li>
                             </ul>
                         </li>
@@ -52,7 +52,7 @@
                             <a href=" {{path('fos_user_security_login')}} " class="">Se connecter</a>
                         </li>
                         <li>
-                            <a href="#">S'inscrire</a>
+                            <a href="{{path('fos_user_registration_register')}}">S'inscrire</a>
                         </li>
                     {% endif %}
                 </ul>

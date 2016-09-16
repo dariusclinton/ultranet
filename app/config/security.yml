@@ -20,7 +20,7 @@ security:
                 check_path:             fos_user_security_check
                 use_forward:            false
                 failure_path:           null
-                default_target_path:    /
+                default_target_path:    fos_user_profile_show
                 remember_me:                true
                 require_previous_session: false
 

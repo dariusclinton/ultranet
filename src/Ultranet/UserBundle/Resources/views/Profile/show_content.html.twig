@@ -1,6 +1,225 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div id="profile-container">
+    {% if app.user.institution is null %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Avertissement!</strong> Votre profile n'est pas complet. Veillez completer vos informations!!!
+        </div>
+    {% endif %}
+    <div class="" id="profile">
+        <div class="card hovercard">
+            <div class="card-background">
+                <img class="card-bkimg" alt="" src=" {{asset('uploads/images/profiles/1.jpg')}} ">
+                <!-- http://lorempixel.com/850/280/people/9/ -->
+            </div>
+            <div class="useravatar">
+                <img alt="" src=" {{asset('uploads/images/profiles/1.jpg')}} ">
+            </div>
+            <div class="card-info"> 
+                <span class="card-title"> {{app.user.subnames ~ " " ~ app.user.name | upper}} <br>
+                    <a href=" {{ path('fos_user_profile_edit') }} ">Modifier mes informations</a>
+                </span>
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+            </div>
+        </div>
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg animated fadeIn" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" id="" class="btn active" href="#tab1" data-toggle="tab">
+                    <span class="fa fa-user fa-2x" aria-hidden="true"></span>
+                    <span class="hidden-xs"> Mes informations personnelles</span>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="" class="btn btn-default" href="#tab2" data-toggle="tab">
+                    <span class="fa fa-bank fa-2x" aria-hidden="true"></span>
+                    <span class="hidden-xs"> Mon Etablissement</span>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="" class="btn btn-default" href="#tab3" data-toggle="tab">
+                    <span class="fa fa-book fa-2x" aria-hidden="true"></span>
+                    <span class="hidden-xs"> Mes Formations</span>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="" class="btn btn-default" href="#tab4" data-toggle="tab">
+                    <span class="fa fa-credit-card fa-2x" aria-hidden="true"></span>
+                    <span class="hidden-xs"> Mes Paiements</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="well">
+            <div class="tab-content">
+                <div class="tab-pane animated FadeIn active" id="tab1">
+                    <div class="container">
+                        {#<div class="row">
+                            <div class="col-md-4 col-sm-12 col-lg-12">
+                                <center>
+                                    <h3>Mes informations</h3>
+                                </center>
+                            </div>
+                        </div>#}
+                        <div class="row">
+                            <center>
+                                <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-md-6 desc">Noms </td>
+                                                <td class="col-md-6 value"> {{ app.user.name | upper }} </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Prenoms </td>
+                                                <td class="col-md-6 value"> {{ app.user.subnames }} </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Email </td>
+                                                <td class="col-md-6 value"> {{ app.user.email }} </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Date de naissance </td>
+                                                <td class="col-md-6 value"> {{ app.user.birdayDate | date('d/m/y') }} </td>
+                                            </tr>
+
+                                            <tr>
+                                            <tr>
+                                                <td class="col-md-7 desc">Numéro de téléphone </td>
+                                                <td class="col-md-6 value"> {{ app.user.phoneNumber }} </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Ville </td>
+                                                <td class="col-md-6 value">{{ app.user.city }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Quartier </td>
+                                                <td class="col-md-6 value">{{ app.user.quarter }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="tab2">
+                    <div class="container">
+                        {#<div class="row">
+                            <div class="col-md-4 col-sm-12 col-lg-12">
+                                <center>
+                                    <h3>Mes informations</h3>
+                                </center>
+                            </div>
+                        </div>#}
+                        <div class="row">
+                            <center>
+                                <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                                    <table class="table table-user-information">
+                                        {% if app.user.institution is not null %}
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-md-6 desc">Nom </td>
+                                                    <td class="col-md-6 value">
+                                                        {{app.user.institution.name}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-6 desc">Ville </td>
+                                                    <td class="col-md-6 value">
+                                                        {{app.user.institution.city}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-6 desc">Quartier </td>
+                                                    <td class="col-md-6 value">
+                                                        {{app.user.institution.quarter}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        {% else %}
+                                            <td class="col-md-6 value">
+                                                Vous n'avez pas encore ajouter votre Etablissement
+                                            </td>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="tab3">
+                    <div class="container">
+                        {#<div class="row">
+                            <div class="col-md-4 col-sm-12 col-lg-12">
+                                <center>
+                                    <h3>Mes informations</h3>
+                                </center>
+                            </div>
+                        </div>#}
+                        <div class="row">
+                            <center>
+                                <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                                    {% if app.user.schedules is null %}
+                                        <h1>
+                                            Vous n'avez pas encore ajouter de formation...
+                                        </h1>
+
+                                    {% else %}
+
+                                        <table class="table table-user-information">
+                                            <thead>
+                                            <th class="col-md-6 desc">Formation </th>
+                                            <th class="col-md-6 desc">Jour</th>
+                                            <th class="col-md-7 desc">horaires</th>
+                                            </thead>
+                                            <tbody>
+                                                {% for schedule in app.user.schedules %}
+                                                    <tr>
+                                                        <td class="col-md-6 sub-value"> {{ schedule.formation.name | upper}} </td>
+                                                        <td class="col-md-6 sub-value"> {{ schedule.name | upper }} </td>
+                                                        <td class="col-md-6 sub-value">{{ schedule.startTime | date('h:m') }} - {{ schedule.endTime | date('h:m') }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+
+                                    {% endif  %}
+
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="tab4">
+                    <div class="row">
+                        <center>
+                            <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3 col-lg-offset-3">
+                                <table class="table table-user-information">
+                                    <thead>
+                                    <th class="col-md-6 desc">Formation </th>
+                                    <th class="col-md-6 desc">Date paiement</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-6 sub-value">Nom </td>
+                                            <td class="col-md-6 sub-value">12/12/2014 - 14h30</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 sub-value">Nom </td>
+                                            <td class="col-md-6 sub-value">Lycee Classique</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 sub-value">Nom </td>
+                                            <td class="col-md-6 sub-value">Lycee Classique</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
