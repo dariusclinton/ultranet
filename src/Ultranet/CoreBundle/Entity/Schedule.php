@@ -41,6 +41,13 @@ class Schedule
      * @ORM\Column(name="endTime", type="time")
      */
     private $endTime;
+    
+    /**
+     * var \boolean
+     * 
+     * @ORM\Column(name="status", type="boolean")
+     */
+    private $status;
 
     /**
      * @var \DateTime
@@ -73,7 +80,22 @@ class Schedule
     */
     private $level;
 
+    /**
+     * @var UltranetCoreBundle\Entity\Paiement
+     * 
+     * @ORM\OneToMany(targetEntity="Ultranet\CoreBundle\Entity\Paiement", mappedBy="schedule", cascade={"persist","remove"})
+     */
+    private $paiements;
+   
     
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->paiements = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdDate = new \DateTime;
+    }
 
     /**
      * Get id
@@ -155,6 +177,30 @@ class Schedule
     public function getEndTime()
     {
         return $this->endTime;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return Schedule
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**
@@ -251,5 +297,39 @@ class Schedule
     public function getLevel()
     {
         return $this->level;
+    }
+
+    /**
+     * Add paiement
+     *
+     * @param \Ultranet\CoreBundle\Entity\Paiement $paiement
+     *
+     * @return Schedule
+     */
+    public function addPaiement(\Ultranet\CoreBundle\Entity\Paiement $paiement)
+    {
+        $this->paiements[] = $paiement;
+
+        return $this;
+    }
+
+    /**
+     * Remove paiement
+     *
+     * @param \Ultranet\CoreBundle\Entity\Paiement $paiement
+     */
+    public function removePaiement(\Ultranet\CoreBundle\Entity\Paiement $paiement)
+    {
+        $this->paiements->removeElement($paiement);
+    }
+
+    /**
+     * Get paiements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaiements()
+    {
+        return $this->paiements;
     }
 }

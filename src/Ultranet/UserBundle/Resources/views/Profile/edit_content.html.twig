@@ -1,19 +1,4 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-{#<div class="row">
-    <div class="col-md-2">{{ form_label(form.name, "Nom", {'label_attr': {}}) }}</div>
-    <div class="col-md-4">{{ form_widget(form.name, {'attr': {'class':'form-control'}}) }}</div>
-    {{ form_errors(form.nom) }}
-</div><br>
-#}
-{{ form_rest(form) }}
-<div>
-    <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-</div>
-{{ form_end(form) }}
-
-{% trans_default_domain 'FOSUserBundle' %}
 <div id="profile-container">
     {% if app.user.institution is null %}
         <div class="alert alert-danger alert-dismissible" role="alert">
@@ -57,8 +42,8 @@
             </div>
             <div class="btn-group" role="group">
                 <button type="button" id="" class="btn btn-default" href="#tab4" data-toggle="tab">
-                    <span class="fa fa-credit-card fa-2x" aria-hidden="true"></span>
-                    <span class="hidden-xs"> Mes Paiements</span>
+                    <span class="fa fa-lock fa-2x" aria-hidden="true"></span>
+                    <span class="hidden-xs"> Mot de passe </span>
                 </button>
             </div>
         </div>
@@ -77,40 +62,116 @@
                         <div class="row">
                             <center>
                                 <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                                    <table class="table table-user-information">
-                                        <tbody>
-                                            <tr>
-                                                <td class="col-md-6 desc">Noms </td>
-                                                <td class="col-md-6 value"> {{ app.user.name | upper }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Prenoms </td>
-                                                <td class="col-md-6 value"> {{ app.user.subnames }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Email </td>
-                                                <td class="col-md-6 value"> {{ app.user.email }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Date de naissance </td>
-                                                <td class="col-md-6 value"> {{ app.user.birdayDate | date('d/m/y') }} </td>
-                                            </tr>
 
-                                            <tr>
-                                            <tr>
-                                                <td class="col-md-7 desc">Numéro de téléphone </td>
-                                                <td class="col-md-6 value"> {{ app.user.phoneNumber }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Ville </td>
-                                                <td class="col-md-6 value">{{ app.user.city }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Quartier </td>
-                                                <td class="col-md-6 value">{{ app.user.quarter }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div id="signupbox" style="margin-top:50px" class="mainbox">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">Mise à jour des informations personnelles</div>
+                                            </div>  
+                                            <div class="panel-body" >
+
+                                                {{ form_start(formUser, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form' } }) }}
+
+                                                <div id="signupalert" style=" {% if form_errors(formUser) is empty %} display:none {% else %} display:block {% endif %}" class="alert alert-danger animated fadeIn">
+                                                    <div> {{form_errors(formUser)}} </div> 
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.name, "Nom", {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.name, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.name)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.subnames, "Prénoms", {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.subnames, {attr: {'class':'form-control', 'placeholder':'Prénoms'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.subnames)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.birdayDate, "Date de Naissance", {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.birdayDate, {attr: {}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.birdayDate)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.email, 'form.email'|trans , {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.email, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.email)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.phoneNumber, "Téléphone" , {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.phoneNumber, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.phoneNumber)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.city, "Ville" , {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.city, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.city)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.quarter, "Quartier" , {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.quarter, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.quarter)}}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.current_password, 'form.current_password'|trans , {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{form_widget(formUser.current_password, {attr: {'class':'form-control', 'placeholder':'Mot de passe'}})}}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{form_errors(formUser.current_password)}}
+                                                    </div>
+                                                </div>
+                                                {{ form_rest(formUser) }}
+                                                <div class="form-group col-md-12">
+                                                    <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp  {{ 'profile.edit.submit'|trans }}</button>
+                                                </div>
+                                                {{ form_end(formUser) }}
+                                            </div>
+                                        </div>
+                                    </div> 
                                 </div>
                             </center>
                         </div>
@@ -128,34 +189,99 @@
                         <div class="row">
                             <center>
                                 <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                                    <table class="table table-user-information">
-                                        {% if app.user.institution is not null %}
-                                            <tbody>
-                                                <tr>
-                                                    <td class="col-md-6 desc">Nom </td>
-                                                    <td class="col-md-6 value">
-                                                        {{app.user.institution.name}}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="col-md-6 desc">Ville </td>
-                                                    <td class="col-md-6 value">
-                                                        {{app.user.institution.city}}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="col-md-6 desc">Quartier </td>
-                                                    <td class="col-md-6 value">
-                                                        {{app.user.institution.quarter}}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        {% else %}
-                                            <td class="col-md-6 value">
-                                                Vous n'avez pas encore ajouter votre Etablissement
-                                            </td>
-                                        {% endif %}
-                                    </table>
+                                    <div id="signupbox" style="margin-top:50px" class="mainbox">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">Mise à jour de l'etabliment : choisissez le votre dans la liste et valider s'il n'est pas là vous pouvez l'ajouter en cliquant sur le bouton <b>ajouter</b></div>
+                                            </div>  
+                                            <div class="panel-body" >
+
+                                                <div style="display:block"id="select-institution-form">
+                                                    {{ form_start(formInstitution, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form' } }) }}
+
+                                                    <div id="signupalert" style=" {% if form_errors(formInstitution) is empty %} display:none {% else %} display:block {% endif %}" class="alert alert-danger animated fadeIn">
+                                                        <div> {{form_errors(formInstitution)}} </div> 
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-5" style="margin-bottom:25px">
+                                                            {{ form_label(formInstitution.institution, "Etablissement", {'label_attr': { class : 'control-label'}}) }}
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            {{form_widget(formInstitution.institution, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            {{form_errors(formInstitution.institution)}}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-5" style="margin-bottom:25px">
+                                                            {{ form_label(formInstitution.current_password, 'form.current_password'|trans , {'label_attr': { class : 'control-label'}}) }}
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            {{form_widget(formInstitution.current_password, {attr: {'class':'form-control', 'placeholder':'Mot de passe'}})}}
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            {{form_errors(formInstitution.current_password)}}
+                                                        </div>
+                                                    </div>
+                                                    {{ form_rest(formInstitution) }}
+                                                    <div class="form-group col-md-12">
+                                                        <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp  {{ 'profile.edit.submit'|trans }}</button>
+                                                    </div>
+                                                    {{ form_end(formInstitution) }}
+                                                </div>
+                                                <div class="col-md-12 well" id="add-institution-block">
+                                                    votre etablissement n'est pas dans la liste ? <span id="add-institution" class="text-primary"> cliquez ici </span> pour l'ajouter.
+                                                </div>
+                                                <div class="col-md-12 well" id="cancel-add-institution-block" style="display:none">
+                                                    <span id="cancel-add-institution" class="text-primary"> cliquez ici </span> pour annuler.
+                                                </div>
+                                                <div style="display:none" id="add-institution-form">
+                                                    {{ form_start(formNewinst, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form' } }) }}
+                                                    <div class="form-group">
+                                                        <div class="col-md-5" style="margin-bottom:25px">
+                                                            {{ form_label(formNewinst.name, "Nom de l'etablissement" , {'label_attr': { class : 'control-label'}}) }}
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            {{form_widget(formNewinst.name, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            {{form_errors(formNewinst.name)}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-5" style="margin-bottom:25px">
+                                                            {{ form_label(formNewinst.city,"Ville" , {'label_attr': { class : 'control-label'}}) }}
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            {{form_widget(formNewinst.city, {attr: {'class':'form-control', 'placeholder':'Ville'}})}}
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            {{form_errors(formNewinst.city)}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-5" style="margin-bottom:25px">
+                                                            {{ form_label(formNewinst.quarter, "Quartier" , {'label_attr': { class : 'control-label'}}) }}
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            {{form_widget(formNewinst.quarter, {attr: {'class':'form-control', 'placeholder':'Quartier'}})}}
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            {{form_errors(formNewinst.quarter)}}
+                                                        </div>
+                                                    </div>
+                                                    {{ form_rest(formNewinst)}}
+                                                    <div class="form-group col-md-12">
+                                                        <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp  {{ 'profile.edit.submit'|trans }}</button>
+                                                    </div>
+                                                    {{ form_end(formNewinst) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
                                 </div>
                             </center>
                         </div>
@@ -207,28 +333,8 @@
                 <div class="tab-pane fade in" id="tab4">
                     <div class="row">
                         <center>
-                            <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3 col-lg-offset-3">
-                                <table class="table table-user-information">
-                                    <thead>
-                                    <th class="col-md-6 desc">Formation </th>
-                                    <th class="col-md-6 desc">Date paiement</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-6 sub-value">Nom </td>
-                                            <td class="col-md-6 sub-value">12/12/2014 - 14h30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-6 sub-value">Nom </td>
-                                            <td class="col-md-6 sub-value">Lycee Classique</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-6 sub-value">Nom </td>
-                                            <td class="col-md-6 sub-value">Lycee Classique</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                            <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                                {{ render(controller('UltranetUserBundle:ChangePassword:changePassword'))}}
                             </div>
                         </center>
                     </div>

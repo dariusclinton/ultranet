@@ -1,4 +1,4 @@
-/*
+*/*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
@@ -611,6 +611,18 @@ a.btn:hover{
     width: 100%;
     z-index: 2;
 }
+.alert.alert-success{
+    position: absolute;
+    margin: 0px;
+    width: 100%;
+    z-index: 2;
+}
+
+.form .alert{
+    position: relative !important;
+    margin-bottom: 10px !important  ;
+    z-index: 2;
+}
 #profile{
     width: 100% !important;
     margin: 0px;
@@ -622,9 +634,9 @@ a.btn:hover{
     /*-webkit-border-top-left-radius:5px;*/
     /*-moz-border-top-left-radius:5px;*/
     /*border-top-left-radius:5px;*/
-/*    -webkit-border-top-right-radius:5px;
-    -moz-border-top-right-radius:5px;
-    border-top-right-radius:5px;*/
+    /*    -webkit-border-top-right-radius:5px;
+        -moz-border-top-right-radius:5px;
+        border-top-right-radius:5px;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -745,4 +757,9 @@ a.btn:hover{
     font-weight: bold;
     font-size: 1.2em;
     color: rgba(1, 255,70,1);
+}
+
+#add-institution:hover, #cancel-add-institution:hover {
+   cursor: pointer;
+   color: rgba(0,0,200,0.5);
 }

@@ -11,16 +11,18 @@
 
 namespace Ultranet\UserBundle\Controller;
 
-use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
-use FOS\UserBundle\Event\GetResponseUserEvent;
-use FOS\UserBundle\Model\UserInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Controller\ProfileController as BaseController;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Model\UserInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Ultranet\UserBundle\Entity\Institution;
+use Ultranet\UserBundle\Form\InstitutionFormType;
+use Ultranet\UserBundle\Form\Type\InstitutionType;
 
 /**
  * Controller managing the user profile
@@ -65,22 +67,34 @@ class ProfileController extends BaseController {
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
             $formFactory = $this->get('fos_user.profile.form.factory');
 
-        $form = $formFactory->createForm();
-        $form->setData($user);
+        $formUser = $formFactory->createForm();
+        $formUser->setData($user);
+        
+        $institution = $user->getInstitution();
+        $formInstitution = $this->createForm(InstitutionType::class, $user);  
+        
+        $newInst = new Institution();
+        $formNewInst = $this->createForm(InstitutionFormType::class, $newInst);
+        
+        $formUser->handleRequest($request);
+        $formInstitution->handleRequest($request);
+        $formNewInst->handleRequest($request);
+        
+        if($formNewInst->isValid()){
+            
+        }
 
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
+        if ($formUser->isValid() || $formInstitution->isValid()) {
             /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
 
-            $event = new FormEvent($form, $request);
+            $event = new FormEvent($formUser, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
 
             $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {
-                $url = $this->generateUrl('fos_user_profile_show');
+                $url = $this->generateUrl('fos_user_profile_edit');
                 $response = new RedirectResponse($url);
             }
 
@@ -90,7 +104,9 @@ class ProfileController extends BaseController {
         }
 
         return $this->render('FOSUserBundle:Profile:edit.html.twig', array(
-                    'form' => $form->createView()
+                    'formUser' => $formUser->createView(),
+                    'formInstitution' => $formInstitution->createView(),
+                    'formNewinst' => $formNewInst->createView(),
         ));
     }
 

@@ -70,6 +70,7 @@ class Institution
     public function __construct()
     {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdDate = new \DateTime();
     }
 
     /**

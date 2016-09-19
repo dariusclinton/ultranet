@@ -87,6 +87,10 @@ fos_user:
                 address:    loickapatue@yahoo.fr
                 sender_name: Ultranet
             template:   UltranetUserBundle:Registration:email.txt.twig
+    
+    profile:
+        form: 
+            type: Ultranet\UserBundle\Form\Type\ProfileFormType
 
     resetting:
         email:
