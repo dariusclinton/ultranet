@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Ultranet\CoreBundle\UltranetCoreBundle(),
             new Ultranet\UserBundle\UltranetUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Ultranet\ForumBundle\UltranetForumBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
