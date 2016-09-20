@@ -13,13 +13,13 @@ a.btn:hover{
     text-decoration: none !important;
 }
 .navbar-custom {
-    background-color: rgba(1, 255, 70,1);
+/*    background-color: rgba(1, 255, 70,1);*/
     color:#ffffff;
     border-radius:0;
 
 }
 .navbar-custom .navbar{
-    background-color: rgba(1, 255,70,1) !important;
+    background-color: rgba(68, 157,68,1) !important;
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -28,12 +28,24 @@ a.btn:hover{
     color: white !important;
 }*/
 .navbar-custom .navbar-nav > li > a {
-    color: #0277bd;
+    color: #FFFFFF;
     font-size: 1.3em;
 }
 .navbar-custom .navbar-nav > li > a:hover {
     background-color:rgba(0,0,0,0.1);
     color: white;
+    transition: 0.5s;
+}
+.navbar-custom .navbar-nav > li > ul{
+    background-color: rgba(68, 157,68,1) !important;
+    color: white;
+}
+.navbar-custom .navbar-nav > li > ul > li a {
+    color: #fff;
+}
+.navbar-custom .navbar-nav > li > ul > li a:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #fff;
     transition: 0.5s;
 }
 .navbar-custom .navbar-nav > li > a.active {
@@ -486,7 +498,7 @@ a.btn:hover{
 }
 .footer-ul li a:hover {
     transition: color 0.2s linear 0s, background 0.2s linear 0s; 
-    color:rgba(1, 255,70,1); 
+    color:rgba(68, 157,68,1); 
 }
 
 .social:hover {
@@ -715,7 +727,8 @@ a.btn:hover{
     background: transparent;
 }
 #profile .btn-pref .btn.active{
-    background: rgba(1, 255,70,1);
+    background: rgba(68, 157,68,1);
+    color: #fff;
 }
 #profile .btn-pref .btn .hidden-xs{
     font-size: 1.1em;
@@ -751,12 +764,12 @@ a.btn:hover{
 .table-user-information > tbody  tr  td.value {
     font-weight: bold;
     font-size: 2em;
-    color: rgba(1, 255,70,1);
+    color: rgba(68, 157,68,1);
 }
 .table-user-information > tbody  tr  td.sub-value {
     font-weight: bold;
     font-size: 1.2em;
-    color: rgba(1, 255,70,1);
+    color: rgba(68, 157,68,1);
 }
 
 #add-institution:hover, #cancel-add-institution:hover {
