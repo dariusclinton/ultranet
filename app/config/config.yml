@@ -77,24 +77,24 @@ fos_user:
     
     service:
         mailer: fos_user.mailer.twig_swift
-        
+ 
+    profile:
+        form: 
+            type: Ultranet\UserBundle\Form\Type\ProfileFormType
+   
     registration:
         form:
             type: Ultranet\UserBundle\Form\UserType
         confirmation:
             enabled: true
             from_email:
-                address:    loickapatue@yahoo.fr
+                address:    loickaptue@yahoo.fr
                 sender_name: Ultranet
-            template:   UltranetUserBundle:Registration:email.txt.twig
+            template:   FOSUserBundle:Registration:email.txt.twig
     
-    profile:
-        form: 
-            type: Ultranet\UserBundle\Form\Type\ProfileFormType
-
     resetting:
         email:
             from_email:
-                address:        loickapatue@yahoo.fr
+                address:        loickpatue@yahoo.fr
                 sender_name:    Ultranet
             template:   UltranetUserBundle:Resetting:email.txt.twig
