@@ -1,5 +1,9 @@
 {% extends 'UltranetCoreBundle::layout.html.twig' %}
+{% block title %}
+    Accueil - {{ parent()}}
+{% endblock %}
 {% block body_content %}
+    {% include 'UltranetCoreBundle:Includes:banner.html.twig' %}
     <div width="100%" id="content-body">
         <div class="container">
             <!-- Marketing Icons Section -->
