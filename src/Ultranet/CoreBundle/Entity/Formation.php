@@ -63,14 +63,6 @@ class Formation {
      * @ORM\JoinColumn(nullable=true)
      */
     protected $image;
-
-    /**
-     * @var Ultranet\CoreBundle\Entity\Level
-     * 
-     * @ORM\ManyToMany(targetEntity="Ultranet\CoreBundle\Entity\Level", inversedBy="formations")
-     * @ORM\JoinTable(name="ultranet_formation_level")
-     */
-    private $levels;
     
     /**
      * @var Ultranet\CoreBundle\Entity\Schedule
@@ -85,7 +77,6 @@ class Formation {
      */
     public function __construct()
     {
-        $this->levels = new \Doctrine\Common\Collections\ArrayCollection();
         $this->schedules = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -241,40 +232,6 @@ class Formation {
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Add level
-     *
-     * @param \Ultranet\CoreBundle\Entity\Level $level
-     *
-     * @return Formation
-     */
-    public function addLevel(\Ultranet\CoreBundle\Entity\Level $level)
-    {
-        $this->levels[] = $level;
-
-        return $this;
-    }
-
-    /**
-     * Remove level
-     *
-     * @param \Ultranet\CoreBundle\Entity\Level $level
-     */
-    public function removeLevel(\Ultranet\CoreBundle\Entity\Level $level)
-    {
-        $this->levels->removeElement($level);
-    }
-
-    /**
-     * Get levels
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLevels()
-    {
-        return $this->levels;
     }
 
     /**

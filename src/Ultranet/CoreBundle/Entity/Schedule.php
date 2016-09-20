@@ -47,7 +47,14 @@ class Schedule
      * 
      * @ORM\Column(name="status", type="boolean")
      */
-    private $status;
+    private $statusPaiement=false;
+    
+    /**
+     * @var \Datetime
+     * 
+     * @ORM\Column(name="expired_date", type="datetime")
+     */
+    private $expiredDate;
 
     /**
      * @var \DateTime
@@ -72,14 +79,6 @@ class Schedule
      */
     private $user;
 
-   /**
-    * @var Ultranet\CoreBundle\Entity\Level
-    * 
-    * @ORM\ManyToOne(targetEntity="Ultranet\CoreBundle\Entity\Level", inversedBy="schedules")
-    * @ORM\JoinColumn(nullable=false)
-    */
-    private $level;
-
     /**
      * @var UltranetCoreBundle\Entity\Paiement
      * 
@@ -87,7 +86,7 @@ class Schedule
      */
     private $paiements;
    
-    
+   
     /**
      * Constructor
      */
@@ -95,6 +94,7 @@ class Schedule
     {
         $this->paiements = new \Doctrine\Common\Collections\ArrayCollection();
         $this->createdDate = new \DateTime;
+        $this->expiredDate = new \DateTime() + 5;
     }
 
     /**
@@ -180,29 +180,46 @@ class Schedule
     }
 
     /**
-     * Set status
+     * Set statusPaiement
      *
-     * @param boolean $status
+     * @param boolean $statusPaiement
      *
      * @return Schedule
      */
-    public function setStatus($status)
+    public function setStatusPaiement($statusPaiement)
     {
-        $this->status = $status;
+        $this->statusPaiement = $statusPaiement;
 
         return $this;
     }
 
     /**
-     * Get status
+     * Get statusPaiement
      *
      * @return boolean
      */
-    public function getStatus()
+    public function getStatusPaiement()
     {
-        return $this->status;
+        return $this->statusPaiement;
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    function getExpiredDate() {
+        return $this->expiredDate;
     }
 
+    /**
+     * 
+     * @param \Datetime $expiredDate
+     */
+    function setExpiredDate(\Datetime $expiredDate) {
+        $this->expiredDate = $expiredDate;
+    }
+
+    
     /**
      * Set createdDate
      *
@@ -273,30 +290,6 @@ class Schedule
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set level
-     *
-     * @param \Ultranet\CoreBundle\Entity\Level $level
-     *
-     * @return Schedule
-     */
-    public function setLevel(\Ultranet\CoreBundle\Entity\Level $level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return \Ultranet\CoreBundle\Entity\Level
-     */
-    public function getLevel()
-    {
-        return $this->level;
     }
 
     /**
