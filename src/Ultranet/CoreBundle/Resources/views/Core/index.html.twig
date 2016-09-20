@@ -1,8 +1,5 @@
-{% extends '::base.html.twig' %}
-{% block body %}
-    {% include 'UltranetCoreBundle:Includes:header.html.twig' %}
-    {% include 'UltranetCoreBundle:Includes:banner.html.twig' %}
-
+{% extends 'UltranetCoreBundle::layout.html.twig' %}
+{% block body_content %}
     <div width="100%" id="content-body">
         <div class="container">
             <!-- Marketing Icons Section -->
@@ -115,6 +112,4 @@
         </div>
 
     </div>
-    {#    {% include 'UltranetCoreBundle:Includes:newsletter.html.twig' %}#}
-    {% include 'UltranetCoreBundle:Includes:footer.html.twig' %}
 {% endblock %}
