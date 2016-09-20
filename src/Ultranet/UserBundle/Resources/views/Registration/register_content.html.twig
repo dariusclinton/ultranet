@@ -10,10 +10,10 @@
 
                 <form action=" {{path('fos_user_registration_register')}} " class="fos_user_registration_register form-horizontal" method="post" accept-charset="utf-8">
 
-                    <div id="signupalert" style=" {% if form_errors(form) is empty and form_errors(form.plainPassword) is empty and form_errors(form.email) is empty %} display:none {% else %} display:block {% endif %}" class="alert alert-danger animated fadeIn">
+                    <div id="signupalert" style=" {% if form_errors(form) is empty and form_errors(form.plainPassword.first) is empty and form_errors(form.email) is empty %} display:none {% else %} display:block {% endif %}" class="alert alert-danger animated fadeIn">
                         <div> {{form_errors(form)}} </div> 
                         <div>
-                            {{form_errors(form.plainPassword)}}
+                            {{form_errors(form.plainPassword.first)}}
                         </div>  
                         <div> {{form_errors(form.email)}} </div>
                     </div>

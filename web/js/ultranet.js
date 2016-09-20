@@ -27,7 +27,7 @@ $(function () {
         $("#add-institution-form").slideDown(500);
     });
 
-    $("#cancel-add-institu  tion").click(function (ev) {
+    $("#cancel-add-institution").click(function (ev) {
         ev.preventDefault();
         $("#select-institution-form").slideDown(500);
         $("#add-institution-block").fadeIn(200);

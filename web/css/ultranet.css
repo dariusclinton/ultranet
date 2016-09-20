@@ -605,7 +605,7 @@ a.btn:hover{
     width: 100%;
     margin: 0px;
 }
-#profile-container .alert{
+/*#profile-container .alert{
     position: absolute;
     margin: 0px;
     width: 100%;
@@ -616,7 +616,7 @@ a.btn:hover{
     margin: 0px;
     width: 100%;
     z-index: 2;
-}
+}*/
 
 .form .alert{
     position: relative !important;
