@@ -67,13 +67,6 @@ class User extends BaseUser implements UserInterface {
     protected $quarter;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
-     */
-    protected $slug;
-
-    /**
      * @var \Datetime
      *
      * @ORM\Column(name="created_date", type="datetime", nullable=true)
@@ -100,7 +93,14 @@ class User extends BaseUser implements UserInterface {
      * 
      * @ORM\OneToMany(targetEntity="Ultranet\CoreBundle\Entity\Schedule", mappedBy="user", cascade={"persist","remove"})
      */
-    private $schedules;
+    protected $schedules;
+    
+    /**
+     * @var \UltranetCoreBundle\Entity\Paiement
+     * 
+     * @ORM\OneToMany(targetEntity="Ultranet\CoreBundle\Entity\Paiement", mappedBy="user", cascade={"persist","remove"})
+     */
+    protected $paiements;
 
     public function __construct() {
         parent::__construct();
@@ -247,28 +247,6 @@ class User extends BaseUser implements UserInterface {
     }
 
     /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return User
-     */
-    public function setSlug($slug) {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug() {
-        return $this->slug;
-    }
-
-    /**
      * Set image
      *
      * @param \Ultranet\UserBundle\Entity\Image $image
@@ -366,5 +344,39 @@ class User extends BaseUser implements UserInterface {
     public function getCreatedDate()
     {
         return $this->createdDate;
+    }
+
+    /**
+     * Add paiement
+     *
+     * @param \Ultranet\CoreBundle\Entity\Paiement $paiement
+     *
+     * @return User
+     */
+    public function addPaiement(\Ultranet\CoreBundle\Entity\Paiement $paiement)
+    {
+        $this->paiements[] = $paiement;
+
+        return $this;
+    }
+
+    /**
+     * Remove paiement
+     *
+     * @param \Ultranet\CoreBundle\Entity\Paiement $paiement
+     */
+    public function removePaiement(\Ultranet\CoreBundle\Entity\Paiement $paiement)
+    {
+        $this->paiements->removeElement($paiement);
+    }
+
+    /**
+     * Get paiements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaiements()
+    {
+        return $this->paiements;
     }
 }

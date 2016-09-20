@@ -49,7 +49,15 @@ class Paiement
      */
     private $schedule;
     
-   public function __construct() {
+    /**
+     * @var \UltranetUserBundle\Entity\User
+     * 
+     * @ORM\ManyToOne(targetEntity="Ultranet\UserBundle\Entity\User", inversedBy="paiements")
+     */
+    private  $user;
+
+
+    public function __construct() {
        $this->date = new \DateTime;
    }
 
@@ -157,5 +165,29 @@ class Paiement
     public function getSchedule()
     {
         return $this->schedule;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Ultranet\UserBundle\Entity\User $user
+     *
+     * @return Paiement
+     */
+    public function setUser(\Ultranet\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Ultranet\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
