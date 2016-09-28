@@ -18,7 +18,7 @@ $(function () {
         },
         gridheight: 400
     });
-
+    
     $("#add-institution").click(function (ev) {
         ev.preventDefault();
         $("#select-institution-form").slideUp(500);
