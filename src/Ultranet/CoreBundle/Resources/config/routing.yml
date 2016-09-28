@@ -1,3 +1,7 @@
 ultranet_core_homepage:
     path:     /
     defaults: { _controller: UltranetCoreBundle:Core:index }
+
+ultranet_core_contactpage:
+    path:     /contact
+    defaults: { _controller: UltranetCoreBundle:Contact:index }

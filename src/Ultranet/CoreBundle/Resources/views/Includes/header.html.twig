@@ -1,29 +1,34 @@
 <!-- Navigation -->
 <div id="navigation" class="navbar-custom">
-    <nav class="navbar navbar-fixed-top bg-success" role="navigation">
+    <nav class="navbar navbar-fixed-top bg-success boxshadow" role="navigation">
         <div class="">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{path('ultranet_core_homepage')}} "> <img src=" {{asset('images/logo.jpeg')}} " width="100" height="50" style="position:absolute; top:0px;" alt=""> </a>
+                <a class="navbar-brand" href="{{ path('ultranet_core_homepage') }} "> <img
+                            src=" {{ asset('images/logo.jpeg') }} " width="100" height="50"
+                            style="position:absolute; top:0px;" alt=""> </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href=" {{path('ultranet_core_homepage')}} " class=" {% if app.request.attributes.get('_route') == 'ultranet_core_homepage' %}active{% endif %} ">Accueil</a>
+                        <a href=" {{ path('ultranet_core_homepage') }} "
+                           class=" {% if app.request.attributes.get('_route') == 'ultranet_core_homepage' %}{{ "active" }}{% endif %} ">Accueil</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href=" {{ path('ultranet_core_contactpage') }} "
+                           class=" {% if app.request.attributes.get('_route') == 'ultranet_core_contactpage' %}{{ "active" }}{% endif %} ">Contact</a>
                     </li>
                     <li>
                         <a href="#">Nos mémoires</a>
@@ -34,10 +39,12 @@
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="{% if app.request.attributes.get('_route') == 'fos_user_profile_show' or app.request.attributes.get('_route') == 'fos_user_profile_edit'  %}active{% endif %}">{{app.user.name}} <b class="fa fa-caret-down"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               class="{% if app.request.attributes.get('_route') == 'fos_user_profile_show' or app.request.attributes.get('_route') == 'fos_user_profile_edit' %}{{ "active" }}{% endif %}">{{ app.user.name }}
+                                <b class="fa fa-caret-down"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href=" {{path('fos_user_security_logout')}} ">Se déconnecter</a>
+                                    <a href=" {{ path('fos_user_security_logout') }} ">Se déconnecter</a>
                                 </li>
                                 <li>
                                     <a href=" {{ path('fos_user_profile_show') }} "> profile </a>
@@ -49,10 +56,10 @@
                         </li>
                     {% else %}
                         <li>
-                            <a href=" {{path('fos_user_security_login')}} " class="">Se connecter</a>
+                            <a href=" {{ path('fos_user_security_login') }} " class=" {% if app.request.attributes.get('_route') == 'fos_user_security_login' %}{{ "active" }}{% endif %} " >Se connecter</a>
                         </li>
                         <li>
-                            <a href="{{path('fos_user_registration_register')}}">S'inscrire</a>
+                            <a href="{{ path('fos_user_registration_register') }}" class=" {% if app.request.attributes.get('_route') == 'fos_user_registration_register' %}{{ "active" }}{% endif %} ">S'inscrire</a>
                         </li>
                     {% endif %}
                 </ul>

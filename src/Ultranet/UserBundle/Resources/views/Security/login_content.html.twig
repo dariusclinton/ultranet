@@ -1,16 +1,16 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="container">    
-    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-        <div class="panel panel-info" >
-            <div class="panel-heading">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-success" >
+            <div class="panel-heading ">
                 <div class="panel-title">Se connecter</div>
 {#                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Mot de passe oublié?</a></div>#}
             </div>     
 
             <div style="padding-top:30px" class="panel-body" >
 
-                <div style="{% if error %}display:block{% else %}display:none{% endif %}" id="login-alert" class="alert alert-danger col-sm-12 animated fadeIn">
+                <div style="{% if error %}display:block{% else %}{{ "display:none" }}{% endif %}" id="login-alert" class="alert alert-danger col-sm-12 animated fadeIn">
                     {% if error %}
                         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
@@ -36,7 +36,7 @@
                         <div class="checkbox">    
                             <label>
                                 <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                                <label for="remember_me">{{ 'security.login.remember_me' | trans }} {{'form.password' | trans}} </label>
+                                <label for="remember_me">{{ 'security.login.remember_me' | trans }}</label>
                             </label>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <input type="submit" id="_submit" class="btn btn-success" name="_submit" value="{{ 'security.login.submit' | trans }}" />
+                            <button type="submit" id="submit" class="btn btn-success" name="submit"><i class="fa fa-hand-o-right"></i> &nbsp {{ 'security.login.submit' | trans }}</button>
                             {#<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>#}
 
                         </div>
