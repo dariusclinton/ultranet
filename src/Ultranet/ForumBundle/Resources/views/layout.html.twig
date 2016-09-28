@@ -1,0 +1,42 @@
+{% extends "UltranetCoreBundle::layout.html.twig" %}
+
+
+{% block body_content %}
+  <div class="container">
+    
+     <br>
+    
+     <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="{{ path('ultranet_core_homepage') }}">Accueil</a></li>
+          <li class="active">Forum</li>
+        </ol>
+      </div>
+    </div>
+     
+    <br>
+    
+    <div class="row">
+      <div class="col-md-9">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <buttton class="btn btn-success" type="button"><i class="fa fa-search"></i></buttton>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <a href="{{ path('ultranet_forum_topic_add') }}" class="btn btn-success pull-right">
+          <i class="fa fa-plus-circle"></i> Créer un nouveau sujet
+        </a>
+      </div>
+    </div>
+
+    <br>
+    
+    {% block forum_content %}
+    {% endblock %}
+    
+  </div>
+{% endblock %}

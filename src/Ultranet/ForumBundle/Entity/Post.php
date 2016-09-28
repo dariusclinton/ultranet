@@ -41,9 +41,16 @@ class Post
     private $createur;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Topic")
+     * @ORM\ManyToOne(targetEntity="Topic", inversedBy="posts")
      */
     private $topic;
+    
+    /**
+     * Constructeur
+     */
+    public function __construct() {
+      $this->postTime = new \DateTime();
+    }
 
     /**
      * Get id
@@ -106,11 +113,11 @@ class Post
     /**
      * Set createur
      *
-     * @param \Ultranet\ForumBundle\Entity\User $createur
+     * @param \Ultranet\UserBundle\Entity\User $createur
      *
      * @return Post
      */
-    public function setCreateur(\Ultranet\ForumBundle\Entity\User $createur = null)
+    public function setCreateur(\Ultranet\UserBundle\Entity\User $createur = null)
     {
         $this->createur = $createur;
 

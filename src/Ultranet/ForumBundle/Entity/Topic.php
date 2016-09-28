@@ -3,6 +3,7 @@
 namespace Ultranet\ForumBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Topic
@@ -37,6 +38,7 @@ class Topic
     
     /**
      * @ORM\ManyToOne(targetEntity="Ultranet\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $createur;
     
@@ -46,16 +48,30 @@ class Topic
     private $lastPost;
     
     /**
-     * @ORM\OneToOne(targetEntity="Post")
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "remove"})
      */
     private $firstPost;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Forum")
+     * @ORM\ManyToOne(targetEntity="Forum", inversedBy="topics")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $forum;
-
+    
     /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="topic")
+     */
+    private $posts;
+    
+    /**
+     * Constructeur
+     */
+    function __construct() {
+      $this->topicTime = new \DateTime();
+      $this->posts = new ArrayCollection();
+    }
+
+        /**
      * Get id
      *
      * @return int
@@ -116,11 +132,11 @@ class Topic
     /**
      * Set createur
      *
-     * @param \Ultranet\ForumBundle\Entity\User $createur
+     * @param \Ultranet\UserBundle\Entity\User $createur
      *
      * @return Topic
      */
-    public function setCreateur(\Ultranet\ForumBundle\Entity\User $createur = null)
+    public function setCreateur(\Ultranet\UserBundle\Entity\User $createur = null)
     {
         $this->createur = $createur;
 
@@ -207,5 +223,39 @@ class Topic
     public function getForum()
     {
         return $this->forum;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \Ultranet\ForumBundle\Entity\Post $post
+     *
+     * @return Topic
+     */
+    public function addPost(\Ultranet\ForumBundle\Entity\Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \Ultranet\ForumBundle\Entity\Post $post
+     */
+    public function removePost(\Ultranet\ForumBundle\Entity\Post $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
     }
 }

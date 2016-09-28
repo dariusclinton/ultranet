@@ -1,3 +1,21 @@
 ultranet_forum_homepage:
     path:     /
     defaults: { _controller: UltranetForumBundle:Forum:index }
+    
+ultranet_forum_topics:
+    path:     /{name}
+    defaults: { _controller: UltranetForumBundle:Forum:topics }
+    requirements:
+#        name: ([a-zA-Z0-9\-])+
+    
+ultranet_forum_topic_voir:
+    path:     /{forum_name}/topics/{topic_title}
+    defaults: { _controller: UltranetForumBundle:Topic:voir }
+    requirements:
+#        forum_name: ([a-zA-Z0-9\-])+
+#        title_topic: ([a-zA-Z0-9\-])+
+    
+ultranet_forum_topic_add:
+    path:     /topic/add
+    defaults: { _controller: UltranetForumBundle:Topic:add }
+    
