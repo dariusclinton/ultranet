@@ -50,6 +50,13 @@ class Institution
     private $slug;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_valide", type="boolean", nullable=true)
+     */
+    private $isValide;
+
+    /**
      * @var \Datetime
      *
      * @ORM\Column(name="created_date", type="datetime", nullable=true)
@@ -235,5 +242,29 @@ class Institution
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set isValide
+     *
+     * @param boolean $isValide
+     *
+     * @return Institution
+     */
+    public function setIsValide($isValide)
+    {
+        $this->isValide = $isValide;
+
+        return $this;
+    }
+
+    /**
+     * Get isValide
+     *
+     * @return boolean
+     */
+    public function getIsValide()
+    {
+        return $this->isValide;
     }
 }

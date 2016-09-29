@@ -64,7 +64,7 @@
                                 <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
 
                                     <div id="signupbox" style="margin-top:50px" class="mainbox">
-                                        <div class="panel panel-info">
+                                        <div class="panel panel-success">
                                             <div class="panel-heading">
                                                 <div class="panel-title">Mise à jour des informations personnelles</div>
                                             </div>  
@@ -190,7 +190,7 @@
                             <center>
                                 <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
                                     <div id="signupbox" style="margin-top:50px" class="mainbox">
-                                        <div class="panel panel-info">
+                                        <div class="panel panel-success">
                                             <div class="panel-heading">
                                                 <div class="panel-title">Mise à jour de l'etabliment : choisissez le votre dans la liste et valider s'il n'est pas là vous pouvez l'ajouter en cliquant sur le bouton <b>ajouter</b></div>
                                             </div>  
@@ -208,7 +208,7 @@
                                                             {{ form_label(formInstitution.institution, "Etablissement", {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formInstitution.institution, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                            {{form_widget(formInstitution.institution, {attr: {'class':'form-control'}})}}
                                                         </div>
                                                         <div class="col-md-9">
                                                             {{form_errors(formInstitution.institution)}}
@@ -220,7 +220,7 @@
                                                             {{ form_label(formInstitution.current_password, 'form.current_password'|trans , {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formInstitution.current_password, {attr: {'class':'form-control', 'placeholder':'Mot de passe'}})}}
+                                                            {{form_widget(formInstitution.current_password, {attr: {'class':'form-control', 'placeholder':'form.current_password'|trans}})}}
                                                         </div>
                                                         <div class="col-md-9">
                                                             {{form_errors(formInstitution.current_password)}}

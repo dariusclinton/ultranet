@@ -2,21 +2,22 @@
 <div id="profile-container">
     {% if app.user.institution is null %}
         <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             <strong>Avertissement!</strong> Votre profile n'est pas complet. Veillez completer vos informations!!!
         </div>
     {% endif %}
     <div class="" id="profile">
         <div class="card hovercard">
             <div class="card-background">
-                <img class="card-bkimg" alt="" src=" {{asset('uploads/images/profiles/1.jpg')}} ">
+                <img class="card-bkimg" alt="" src=" {{ asset('uploads/images/profiles/1.jpg') }} ">
                 <!-- http://lorempixel.com/850/280/people/9/ -->
             </div>
             <div class="useravatar">
-                <img alt="" src=" {{asset('uploads/images/profiles/1.jpg')}} ">
+                <img alt="" src=" {{ asset('uploads/images/profiles/1.jpg') }} ">
             </div>
             <div class="card-info"> 
-                <span class="card-title"> {{app.user.subnames ~ " " ~ app.user.name | upper}} <br>
+                <span class="card-title"> {{ app.user.subnames ~ " " ~ app.user.name | upper }} <br>
                     <a href=" {{ path('fos_user_profile_edit') }} ">Modifier mes informations</a>
                 </span>
 
@@ -65,36 +66,36 @@
                                 <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
                                     <table class="table table-user-information">
                                         <tbody>
-                                            <tr>
-                                                <td class="col-md-6 desc">Noms </td>
-                                                <td class="col-md-6 value"> {{ app.user.name | upper }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Prenoms </td>
-                                                <td class="col-md-6 value"> {{ app.user.subnames }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Email </td>
-                                                <td class="col-md-6 value"> {{ app.user.email }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Date de naissance </td>
-                                                <td class="col-md-6 value"> {{ app.user.birdayDate | date('d/m/Y') }} </td>
-                                            </tr>
+                                        <tr>
+                                            <td class="col-md-6 desc">Noms</td>
+                                            <td class="col-md-6 value"> {{ app.user.name | upper }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 desc">Prenoms</td>
+                                            <td class="col-md-6 value"> {{ app.user.subnames }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 desc">Email</td>
+                                            <td class="col-md-6 value"> {{ app.user.email }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 desc">Date de naissance</td>
+                                            <td class="col-md-6 value"> {{ app.user.birdayDate | date('d/m/Y') }} </td>
+                                        </tr>
 
-                                            <tr>
-                                            <tr>
-                                                <td class="col-md-7 desc">Numéro de téléphone </td>
-                                                <td class="col-md-6 value"> {{ app.user.phoneNumber }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Ville </td>
-                                                <td class="col-md-6 value">{{ app.user.city }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-md-6 desc">Quartier </td>
-                                                <td class="col-md-6 value">{{ app.user.quarter }}</td>
-                                            </tr>
+                                        <tr>
+                                        <tr>
+                                            <td class="col-md-7 desc">Numéro de téléphone</td>
+                                            <td class="col-md-6 value"> {{ app.user.phoneNumber }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 desc">Ville</td>
+                                            <td class="col-md-6 value">{{ app.user.city }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 desc">Quartier</td>
+                                            <td class="col-md-6 value">{{ app.user.quarter }}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -117,24 +118,24 @@
                                     <table class="table table-user-information">
                                         {% if app.user.institution is not null %}
                                             <tbody>
-                                                <tr>
-                                                    <td class="col-md-6 desc">Nom </td>
-                                                    <td class="col-md-6 value">
-                                                        {{app.user.institution.name}}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="col-md-6 desc">Ville </td>
-                                                    <td class="col-md-6 value">
-                                                        {{app.user.institution.city}}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="col-md-6 desc">Quartier </td>
-                                                    <td class="col-md-6 value">
-                                                        {{app.user.institution.quarter}}
-                                                    </td>
-                                                </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Nom</td>
+                                                <td class="col-md-6 value">
+                                                    {{ app.user.institution.name }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Ville</td>
+                                                <td class="col-md-6 value">
+                                                    {{ app.user.institution.city }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-6 desc">Quartier</td>
+                                                <td class="col-md-6 value">
+                                                    {{ app.user.institution.quarter }}
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         {% else %}
                                             <td class="col-md-6 value">
@@ -159,32 +160,37 @@
                         <div class="row">
                             <center>
                                 <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                                    {% if app.user.schedules is null %}
-                                        <h1>
-                                            Vous n'avez pas encore ajouter de formation...
-                                        </h1>
-
-                                    {% else %}
-
-                                        <table class="table table-user-information">
+                                    <table class="table table-user-information">
+                                        {% if app.user.schedules is not empty %}
                                             <thead>
-                                            <th class="col-md-6 desc">Formation </th>
+                                            <th class="col-md-6 desc">Formation</th>
                                             <th class="col-md-6 desc">Jour</th>
                                             <th class="col-md-7 desc">horaires</th>
+                                            <th class="col-md-7 desc">status du Paiement</th>
                                             </thead>
                                             <tbody>
-                                                {% for schedule in app.user.schedules %}
-                                                    <tr>
-                                                        <td class="col-md-6 sub-value"> {{ schedule.formation.name | upper}} </td>
-                                                        <td class="col-md-6 sub-value"> {{ schedule.name | upper }} </td>
-                                                        <td class="col-md-6 sub-value">{{ schedule.startTime | date('h:m') }} - {{ schedule.endTime | date('h:m') }}</td>
-                                                    </tr>
-                                                {% endfor %}
+                                            {% for schedule in app.user.schedules %}
+                                                <tr>
+                                                    <td class="col-md-6 sub-value"> {{ schedule.formation.name | upper }} </td>
+                                                    <td class="col-md-6 sub-value"> {{ schedule.name | upper }} </td>
+                                                    <td class="col-md-6 sub-value">{{ schedule.startTime | date('h:m') }}
+                                                        - {{ schedule.endTime | date('h:m') }}</td>
+                                                    <td class="col-md-6 sub-value">
+                                                        {% if schedule.statusPaiement %}
+                                                            <label class="label label-success">effectué</label>
+                                                        {% else %}
+                                                            <label class="label label-danger">en attente</label>
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <td class="value">
+                                                Vous n'avez pas encore ajouter de Formation...
+                                            </td>
                                             </tbody>
-                                        </table>
-
-                                    {% endif  %}
-
+                                        {% endif %}
+                                    </table>
                                 </div>
                             </center>
                         </div>
@@ -193,27 +199,28 @@
                 <div class="tab-pane fade in" id="tab4">
                     <div class="row">
                         <center>
-                            <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3 col-lg-offset-3">
-                                <table class="table table-user-information">
-                                    <thead>
-                                    <th class="col-md-6 desc">Formation </th>
-                                    <th class="col-md-6 desc">Date paiement</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-6 sub-value">Nom </td>
-                                            <td class="col-md-6 sub-value">12/12/2014 - 14h30</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-6 sub-value">Nom </td>
-                                            <td class="col-md-6 sub-value">Lycee Classique</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-6 sub-value">Nom </td>
-                                            <td class="col-md-6 sub-value">Lycee Classique</td>
-                                        </tr>
+                            <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
 
-                                    </tbody>
+                                <table class="table table-user-information">
+                                    {% if app.user.paiements is not empty %}
+                                        <thead>
+                                        <th class="col-md-6 desc">Formation</th>
+                                        <th class="col-md-6 desc">Date paiement</th>
+                                        </thead>
+                                        <tbody>
+                                        {% for paiement in app.user.paiements %}
+                                            <tr>
+                                                <td class="col-md-6 sub-value">{{ paiement.schedule.formation.name }}</td>
+                                                <td class="col-md-6 sub-value">{{ paiement.date | date('d/m/Y') }}
+                                                    - {{ paiement.date | date('HH:MM') }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <td class="value">
+                                            Vous n'avez pas encore effectué de Paiement...
+                                        </td>
+                                        </tbody>
+                                    {% endif %}
                                 </table>
                             </div>
                         </center>
