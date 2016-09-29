@@ -1,0 +1,44 @@
+{% extends "UltranetForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ forum.name }} - {{ parent() }}
+{% endblock %}
+
+
+{% block forum_content %}
+  <h1>{{ forum.name }}</h1>
+
+  <br>
+
+  <div class="row">
+    {% for topic in forum.topics %}
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="row">
+              <div  class="col-md-5">
+                <h4>
+                  <a href="{{ path('ultranet_forum_topic_voir', {'forum_name': forum.name, 'topic_title': topic.title}) }}">
+                    <b>{{ topic.title }}</b>
+                  </a>
+                </h4>
+                <p>Par <b>{{ topic.createur.username }}</b></p>
+              </div>
+              <div class="col-md-2">
+                <p>{{ topic.posts|length }} messages</p>
+              </div>
+              <div  class="col-md-5">
+                <p>
+                  Dernier message par <b>{{ topic.lastPost.createur.username }}</b> <br>
+                  {{ topic.lastPost.texte }} <br>
+                  Le <b><em>{{ topic.lastPost.postTime|date('d/m/y') }}</em></b> <br>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+  </div>
+{% endblock %}

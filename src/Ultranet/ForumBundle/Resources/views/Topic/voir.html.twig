@@ -1,0 +1,45 @@
+{% extends "UltranetForumBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ topic.title }} - {{ parent() }}
+{% endblock %}
+
+{% block forum_content %}
+  <h1>{{ topic.title }}</h1>
+
+  <br>
+
+  <div class="row">
+
+    {% for post in topic.posts %}
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span><b>{{ post.createur.username }}</b></span>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-1" style="border-right: 1px solid;">
+              <div><i class="fa fa-user fa-4x"></i></div>
+            </div>
+            <div class="col-md-11">
+              <p>Posté le: <b><em>{{ post.postTime|date('d/m/y') }}</em></b></p>
+              <p>{{ post.texte }}</p>
+              <hr>
+              <p style="font-size: 0.8em">
+                Equipe Ultranet <br>
+                Si vous avez besoin d'aide n'hésitez pas à nous contacter.
+              </p>
+            </div>
+          </div>
+          <div class="panel-footer">
+
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+    <div class="col-md-12">
+      {% include 'UltranetForumBundle:Post:formulaire.html.twig'%}
+    </div>
+  </div>
+{% endblock %}
