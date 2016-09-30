@@ -2,21 +2,22 @@
 <div id="profile-container">
     {% if app.user.institution is null %}
         <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             <strong>Avertissement!</strong> Votre profile n'est pas complet. Veillez completer vos informations!!!
         </div>
     {% endif %}
     <div class="" id="profile">
         <div class="card hovercard">
             <div class="card-background">
-                <img class="card-bkimg" alt="" src=" {{asset('uploads/images/profiles/1.jpg')}} ">
+                <img class="card-bkimg" alt="" src=" {{ asset('uploads/images/profiles/1.jpg') }} ">
                 <!-- http://lorempixel.com/850/280/people/9/ -->
             </div>
             <div class="useravatar">
-                <img alt="" src=" {{asset('uploads/images/profiles/1.jpg')}} ">
+                <img alt="" src=" {{ asset('uploads/images/profiles/1.jpg') }} ">
             </div>
             <div class="card-info"> 
-                <span class="card-title"> {{app.user.subnames ~ " " ~ app.user.name | upper}} <br>
+                <span class="card-title"> {{ app.user.subnames ~ " " ~ app.user.name | upper }} <br>
                 </span>
 
             </div>
@@ -67,13 +68,27 @@
                                         <div class="panel panel-success">
                                             <div class="panel-heading">
                                                 <div class="panel-title">Mise à jour des informations personnelles</div>
-                                            </div>  
-                                            <div class="panel-body" >
+                                            </div>
+                                            <div class="panel-body">
 
                                                 {{ form_start(formUser, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form' } }) }}
 
-                                                <div id="signupalert" style=" {% if form_errors(formUser) is empty %} display:none {% else %} display:block {% endif %}" class="alert alert-danger animated fadeIn">
-                                                    <div> {{form_errors(formUser)}} </div> 
+                                                <div id="signupalert"
+                                                     style=" {% if form_errors(formUser) is empty %} display:none {% else %} display:block {% endif %}"
+                                                     class="alert alert-danger animated fadeIn">
+                                                    <div> {{ form_errors(formUser) }} </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-5" style="margin-bottom:25px">
+                                                        {{ form_label(formUser.username, 'form.username' | trans, {'label_attr': { class : 'control-label'}}) }}
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        {{ form_widget(formUser.username, {attr: {'class':'form-control', 'placeholder': 'form.username' | trans }}) }}
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        {{ form_errors(formUser.username) }}
+                                                    </div>
                                                 </div>
 
                                                 <div class="form-group">
@@ -81,10 +96,10 @@
                                                         {{ form_label(formUser.name, "Nom", {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.name, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        {{ form_widget(formUser.name, {attr: {'class':'form-control', 'placeholder':'Nom'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.name)}}
+                                                        {{ form_errors(formUser.name) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -92,10 +107,10 @@
                                                         {{ form_label(formUser.subnames, "Prénoms", {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.subnames, {attr: {'class':'form-control', 'placeholder':'Prénoms'}})}}
+                                                        {{ form_widget(formUser.subnames, {attr: {'class':'form-control', 'placeholder':'Prénoms'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.subnames)}}
+                                                        {{ form_errors(formUser.subnames) }}
                                                     </div>
                                                 </div>
                                                 <div class="form">
@@ -103,10 +118,10 @@
                                                         {{ form_label(formUser.birdayDate, "Date de Naissance", {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.birdayDate, {attr: {}})}}
+                                                        {{ form_widget(formUser.birdayDate, {attr: {}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.birdayDate)}}
+                                                        {{ form_errors(formUser.birdayDate) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -114,10 +129,10 @@
                                                         {{ form_label(formUser.email, 'form.email'|trans , {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.email, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        {{ form_widget(formUser.email, {attr: {'class':'form-control', 'placeholder':'Nom'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.email)}}
+                                                        {{ form_errors(formUser.email) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -125,10 +140,10 @@
                                                         {{ form_label(formUser.phoneNumber, "Téléphone" , {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.phoneNumber, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        {{ form_widget(formUser.phoneNumber, {attr: {'class':'form-control', 'placeholder':'Nom'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.phoneNumber)}}
+                                                        {{ form_errors(formUser.phoneNumber) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -136,10 +151,10 @@
                                                         {{ form_label(formUser.city, "Ville" , {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.city, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        {{ form_widget(formUser.city, {attr: {'class':'form-control', 'placeholder':'Nom'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.city)}}
+                                                        {{ form_errors(formUser.city) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -147,10 +162,10 @@
                                                         {{ form_label(formUser.quarter, "Quartier" , {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.quarter, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                        {{ form_widget(formUser.quarter, {attr: {'class':'form-control', 'placeholder':'Nom'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.quarter)}}
+                                                        {{ form_errors(formUser.quarter) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -158,20 +173,22 @@
                                                         {{ form_label(formUser.current_password, 'form.current_password'|trans , {'label_attr': { class : 'control-label'}}) }}
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{form_widget(formUser.current_password, {attr: {'class':'form-control', 'placeholder':'Mot de passe'}})}}
+                                                        {{ form_widget(formUser.current_password, {attr: {'class':'form-control', 'placeholder':'Mot de passe'}}) }}
                                                     </div>
                                                     <div class="col-md-9">
-                                                        {{form_errors(formUser.current_password)}}
+                                                        {{ form_errors(formUser.current_password) }}
                                                     </div>
                                                 </div>
                                                 {{ form_rest(formUser) }}
                                                 <div class="form-group col-md-12">
-                                                    <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp  {{ 'profile.edit.submit'|trans }}</button>
+                                                    <button type="submit" class="btn btn-success"><i
+                                                                class="fa fa-hand-o-right"></i>&nbsp {{ 'profile.edit.submit'|trans }}
+                                                    </button>
                                                 </div>
                                                 {{ form_end(formUser) }}
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                             </center>
                         </div>
@@ -192,15 +209,19 @@
                                     <div id="signupbox" style="margin-top:50px" class="mainbox">
                                         <div class="panel panel-success">
                                             <div class="panel-heading">
-                                                <div class="panel-title">Mise à jour de l'etabliment : choisissez le votre dans la liste et valider s'il n'est pas là vous pouvez l'ajouter en cliquant sur le bouton <b>ajouter</b></div>
-                                            </div>  
-                                            <div class="panel-body" >
+                                                <div class="panel-title">Mise à jour de l'etabliment : choisissez le
+                                                    votre dans la liste et valider s'il n'est pas là vous pouvez
+                                                    l'ajouter en cliquant sur le bouton <b>ajouter</b></div>
+                                            </div>
+                                            <div class="panel-body">
 
-                                                <div style="display:block"id="select-institution-form">
+                                                <div style="display:block" id="select-institution-form">
                                                     {{ form_start(formInstitution, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form' } }) }}
 
-                                                    <div id="signupalert" style=" {% if form_errors(formInstitution) is empty %} display:none {% else %} display:block {% endif %}" class="alert alert-danger animated fadeIn">
-                                                        <div> {{form_errors(formInstitution)}} </div> 
+                                                    <div id="signupalert"
+                                                         style=" {% if form_errors(formInstitution) is empty %} display:none {% else %} display:block {% endif %}"
+                                                         class="alert alert-danger animated fadeIn">
+                                                        <div> {{ form_errors(formInstitution) }} </div>
                                                     </div>
 
                                                     <div class="form-group">
@@ -208,10 +229,10 @@
                                                             {{ form_label(formInstitution.institution, "Etablissement", {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formInstitution.institution, {attr: {'class':'form-control'}})}}
+                                                            {{ form_widget(formInstitution.institution, {attr: {'class':'form-control'}}) }}
                                                         </div>
                                                         <div class="col-md-9">
-                                                            {{form_errors(formInstitution.institution)}}
+                                                            {{ form_errors(formInstitution.institution) }}
                                                         </div>
                                                     </div>
 
@@ -220,23 +241,29 @@
                                                             {{ form_label(formInstitution.current_password, 'form.current_password'|trans , {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formInstitution.current_password, {attr: {'class':'form-control', 'placeholder':'form.current_password'|trans}})}}
+                                                            {{ form_widget(formInstitution.current_password, {attr: {'class':'form-control', 'placeholder':'form.current_password'|trans}}) }}
                                                         </div>
                                                         <div class="col-md-9">
-                                                            {{form_errors(formInstitution.current_password)}}
+                                                            {{ form_errors(formInstitution.current_password) }}
                                                         </div>
                                                     </div>
                                                     {{ form_rest(formInstitution) }}
                                                     <div class="form-group col-md-12">
-                                                        <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp  {{ 'profile.edit.submit'|trans }}</button>
+                                                        <button type="submit" class="btn btn-success"><i
+                                                                    class="fa fa-hand-o-right"></i>&nbsp {{ 'profile.edit.submit'|trans }}
+                                                        </button>
                                                     </div>
                                                     {{ form_end(formInstitution) }}
                                                 </div>
                                                 <div class="col-md-12 well" id="add-institution-block">
-                                                    votre etablissement n'est pas dans la liste ? <span id="add-institution" class="text-primary"> cliquez ici </span> pour l'ajouter.
+                                                    votre etablissement n'est pas dans la liste ? <span
+                                                            id="add-institution"
+                                                            class="text-primary"> cliquez ici </span> pour l'ajouter.
                                                 </div>
-                                                <div class="col-md-12 well" id="cancel-add-institution-block" style="display:none">
-                                                    <span id="cancel-add-institution" class="text-primary"> cliquez ici </span> pour annuler.
+                                                <div class="col-md-12 well" id="cancel-add-institution-block"
+                                                     style="display:none">
+                                                    <span id="cancel-add-institution"
+                                                          class="text-primary"> cliquez ici </span> pour annuler.
                                                 </div>
                                                 <div style="display:none" id="add-institution-form">
                                                     {{ form_start(formNewinst, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form' } }) }}
@@ -245,10 +272,10 @@
                                                             {{ form_label(formNewinst.name, "Nom de l'etablissement" , {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formNewinst.name, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
+                                                            {{ form_widget(formNewinst.name, {attr: {'class':'form-control', 'placeholder':'Nom'}}) }}
                                                         </div>
                                                         <div class="col-md-9">
-                                                            {{form_errors(formNewinst.name)}}
+                                                            {{ form_errors(formNewinst.name) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -256,10 +283,10 @@
                                                             {{ form_label(formNewinst.city,"Ville" , {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formNewinst.city, {attr: {'class':'form-control', 'placeholder':'Ville'}})}}
+                                                            {{ form_widget(formNewinst.city, {attr: {'class':'form-control', 'placeholder':'Ville'}}) }}
                                                         </div>
                                                         <div class="col-md-9">
-                                                            {{form_errors(formNewinst.city)}}
+                                                            {{ form_errors(formNewinst.city) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -267,21 +294,23 @@
                                                             {{ form_label(formNewinst.quarter, "Quartier" , {'label_attr': { class : 'control-label'}}) }}
                                                         </div>
                                                         <div class="col-md-5">
-                                                            {{form_widget(formNewinst.quarter, {attr: {'class':'form-control', 'placeholder':'Quartier'}})}}
+                                                            {{ form_widget(formNewinst.quarter, {attr: {'class':'form-control', 'placeholder':'Quartier'}}) }}
                                                         </div>
                                                         <div class="col-md-9">
-                                                            {{form_errors(formNewinst.quarter)}}
+                                                            {{ form_errors(formNewinst.quarter) }}
                                                         </div>
                                                     </div>
-                                                    {{ form_rest(formNewinst)}}
+                                                    {{ form_rest(formNewinst) }}
                                                     <div class="form-group col-md-12">
-                                                        <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp  {{ 'profile.edit.submit'|trans }}</button>
+                                                        <button type="submit" class="btn btn-success"><i
+                                                                    class="fa fa-hand-o-right"></i>&nbsp {{ 'profile.edit.submit'|trans }}
+                                                        </button>
                                                     </div>
                                                     {{ form_end(formNewinst) }}
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                             </center>
                         </div>
@@ -296,37 +325,19 @@
                                 </center>
                             </div>
                         </div>#}
-                        <div class="row">
-                            <center>
-                                <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                                    {% if app.user.schedules is null %}
-                                        <h1>
-                                            Vous n'avez pas encore ajouter de formation...
-                                        </h1>
-
-                                    {% else %}
-
-                                        <table class="table table-user-information">
-                                            <thead>
-                                            <th class="col-md-6 desc">Formation </th>
-                                            <th class="col-md-6 desc">Jour</th>
-                                            <th class="col-md-7 desc">horaires</th>
-                                            </thead>
-                                            <tbody>
-                                                {% for schedule in app.user.schedules %}
-                                                    <tr>
-                                                        <td class="col-md-6 sub-value"> {{ schedule.formation.name | upper}} </td>
-                                                        <td class="col-md-6 sub-value"> {{ schedule.name | upper }} </td>
-                                                        <td class="col-md-6 sub-value">{{ schedule.startTime | date('h:m') }} - {{ schedule.endTime | date('h:m') }}</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-
-                                    {% endif  %}
-
-                                </div>
-                            </center>
+                        <div class="row text-center">
+                            <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                                {{ form_widget(formSchedule) }}
+                                {% if app.user.schedules is not empty %}
+                                    {% for schedule in app.user.schedules %}
+                                        test
+                                    {% endfor %}
+                                {% else %}
+                                    <td class="value">
+                                        Vous n'avez pas encore ajouter de Formation...
+                                    </td>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -334,7 +345,7 @@
                     <div class="row">
                         <center>
                             <div class="col-md-10 col-sm-12 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                                {{ render(controller('UltranetUserBundle:ChangePassword:changePassword'))}}
+                                {{ render(controller('UltranetUserBundle:ChangePassword:changePassword')) }}
                             </div>
                         </center>
                     </div>

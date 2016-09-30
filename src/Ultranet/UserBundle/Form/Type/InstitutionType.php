@@ -2,6 +2,7 @@
 
 namespace Ultranet\UserBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,6 +26,11 @@ class InstitutionType extends AbstractType
             ->remove('quarter')
             ->add('institution', EntityType::class, array(
                 'class' => 'UltranetUserBundle:Institution',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('i')
+                        ->where('i.isValidate = :isValidate')
+                        ->setParameter('isValidate', true);
+                },
                 'choice_label' => 'name',
                 'multiple' => false,
                 'expanded' => false,

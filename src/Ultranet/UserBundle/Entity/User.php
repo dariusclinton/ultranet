@@ -6,6 +6,7 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use FOS\UserBundle\Model\UserInterface;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * User
@@ -69,6 +70,7 @@ class User extends BaseUser implements UserInterface {
     /**
      * @var \Datetime
      *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_date", type="datetime", nullable=true)
      */
     private $createdDate;
@@ -107,12 +109,12 @@ class User extends BaseUser implements UserInterface {
         $this->schedules = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    public function setEmail($email) {
+   /* public function setEmail($email) {
         if (is_null($this->getUsername())) {
             $this->setUsername(uniqid());
         }
         return parent::setEmail($email);
-    }
+    }*/
 
     /**
      * Set name

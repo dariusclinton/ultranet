@@ -3,6 +3,7 @@
 namespace Ultranet\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Paiement
@@ -38,7 +39,8 @@ class Paiement
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="create_date", type="datetime")
      */
     private $date;
     
@@ -58,7 +60,6 @@ class Paiement
 
 
     public function __construct() {
-       $this->date = new \DateTime;
    }
 
     /**

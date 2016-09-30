@@ -32,6 +32,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="username" class="col-md-3 control-label"> {{ 'form.username' | trans }} : </label>
+                        <div class="col-md-9">
+                            {{form_widget(form.username, {attr: {'class':'form-control', 'placeholder':'form.username' | trans}})}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="firstname" class="col-md-3 control-label">Nom : </label>
                         <div class="col-md-9">
                             {{form_widget(form.name, {attr: {'class':'form-control', 'placeholder':'Nom'}})}}
