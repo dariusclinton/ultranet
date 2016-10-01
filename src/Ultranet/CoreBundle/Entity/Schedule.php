@@ -3,6 +3,7 @@
 namespace Ultranet\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Schedule
@@ -29,18 +30,18 @@ class Schedule
     private $name;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="startTime", type="time")
+     * @ORM\Column(name="tranche", type="string", length=50, nullable=false)
      */
-    private $startTime;
+    private $tranche;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="endTime", type="time")
+     * @ORM\Column(name="level", type="string", length=100, nullable=false)
      */
-    private $endTime;
+    private $level;
     
     /**
      * var \boolean
@@ -59,7 +60,8 @@ class Schedule
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdDate", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_date", type="datetime", nullable=true)
      */
     private $createdDate;
     
@@ -93,8 +95,7 @@ class Schedule
     public function __construct()
     {
         $this->paiements = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->createdDate = new \DateTime;
-        $this->expiredDate = new \DateTime() + 5;
+        $this->expiredDate = new \DateTime();
     }
 
     /**
@@ -129,54 +130,6 @@ class Schedule
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set startTime
-     *
-     * @param \DateTime $startTime
-     *
-     * @return Schedule
-     */
-    public function setStartTime($startTime)
-    {
-        $this->startTime = $startTime;
-
-        return $this;
-    }
-
-    /**
-     * Get startTime
-     *
-     * @return \DateTime
-     */
-    public function getStartTime()
-    {
-        return $this->startTime;
-    }
-
-    /**
-     * Set endTime
-     *
-     * @param \DateTime $endTime
-     *
-     * @return Schedule
-     */
-    public function setEndTime($endTime)
-    {
-        $this->endTime = $endTime;
-
-        return $this;
-    }
-
-    /**
-     * Get endTime
-     *
-     * @return \DateTime
-     */
-    public function getEndTime()
-    {
-        return $this->endTime;
     }
 
     /**
@@ -324,5 +277,53 @@ class Schedule
     public function getPaiements()
     {
         return $this->paiements;
+    }
+
+    /**
+     * Set level
+     *
+     * @param string $level
+     *
+     * @return Schedule
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * Set tranche
+     *
+     * @param string $tranche
+     *
+     * @return Schedule
+     */
+    public function setTranche($tranche)
+    {
+        $this->tranche = $tranche;
+
+        return $this;
+    }
+
+    /**
+     * Get tranche
+     *
+     * @return string
+     */
+    public function getTranche()
+    {
+        return $this->tranche;
     }
 }

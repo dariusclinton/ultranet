@@ -3,6 +3,7 @@
 namespace Ultranet\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Formation
@@ -45,14 +46,16 @@ class Formation {
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="text", nullable=true)
+     * @Gedmo\Slug(fields={"name"}, unique=false, updatable=true)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdDate", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_date", type="datetime", nullable=true)
      */
     private $createdDate;
 

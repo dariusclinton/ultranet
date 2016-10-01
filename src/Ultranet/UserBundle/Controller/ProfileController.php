@@ -20,6 +20,8 @@ use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Ultranet\CoreBundle\Entity\Schedule;
+use Ultranet\CoreBundle\Form\ScheduleType;
 use Ultranet\UserBundle\Entity\Institution;
 use Ultranet\UserBundle\Form\InstitutionFormType;
 use Ultranet\UserBundle\Form\Type\InstitutionType;
@@ -75,16 +77,24 @@ class ProfileController extends BaseController {
         
         $newInst = new Institution();
         $formNewInst = $this->createForm(InstitutionFormType::class, $newInst);
+
+        $schedule = new Schedule();
+        $formSchedule = $this->createForm(ScheduleType::class, $schedule);
         
         $formUser->handleRequest($request);
         $formInstitution->handleRequest($request);
         $formNewInst->handleRequest($request);
         
-        if($formNewInst->isValid()){
-            
+        if($formNewInst->isSubmitted() && $formNewInst->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $user->setInstitution($newInst);
+            $em->persist($newInst);
+            $em->flush();
+
+            return $this->redirectToRoute("fos_user_profile_edit");
         }
 
-        if ($formUser->isValid() || $formInstitution->isValid()) {
+        if ($formUser->isSubmitted() && $formUser->isValid() || $formInstitution->isSubmitted() && $formInstitution->isValid()) {
             /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
 
@@ -107,6 +117,7 @@ class ProfileController extends BaseController {
                     'formUser' => $formUser->createView(),
                     'formInstitution' => $formInstitution->createView(),
                     'formNewinst' => $formNewInst->createView(),
+                    'formSchedule' => $formSchedule->createView(),
         ));
     }
 

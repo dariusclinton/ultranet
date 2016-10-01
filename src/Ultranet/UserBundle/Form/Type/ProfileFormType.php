@@ -25,10 +25,10 @@ class ProfileFormType extends AbstractType {
                 ->add('city', TextType::class)
                 ->add('quarter', TextType::class)
                 ->add('birdayDate', BirthdayType::class, array(
-                    'years' => range(1950, 2010),
+                    'years' => range(1950, 2006),
                     'placeholder' => '--',
                 ))
-                ->remove('username', TextType::class);
+                ;
     }
 
     // BC for SF < 3.0
