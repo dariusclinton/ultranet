@@ -2,6 +2,8 @@
 
 namespace Ultranet\ForumBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * ForumRepository
  *
@@ -10,4 +12,25 @@ namespace Ultranet\ForumBundle\Repository;
  */
 class ForumRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getForums($nombreParPage, $page)
+  {
+    if ($page < 1) {
+      throw new \InvalidArgumentException("L'argument ne peut pas être inférieur à 1 (valeur : " . $page . ")");
+    }
+
+    // Construction de la requete
+    $query = $this->createQueryBuilder('f')
+      ->orderBy('f.ordre', 'DESC')
+      ->getQuery();
+
+    // On definit le forum a partir duquel commencer la liste
+    $query->setFirstResult(($page - 1) * $nombreParPage)
+      // Ainsi que le nombre de forum a afficher
+      ->setMaxResults($nombreParPage);
+
+    // On retourne l'objete Paginator correspondant a la requete
+    return new Paginator($query);
+  }
+
+  
 }

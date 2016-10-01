@@ -5,17 +5,60 @@
 {% endblock %}
 
 {% block forum_content %}
-  <h1>{{ topic.title }}</h1>
+
+  <div class="row">
+    {% if topic.isResolu %}
+      <div class="col-md-12">
+        <p class="alert alert-success">Sujet résolu</p>
+      </div>
+    {% endif %}
+    {% if app.user is not null and topic.createur.username==app.user.username %}
+      <div class="col-md-12">
+        <p class="pull-right">
+          <a href="{{ path('ultranet_forum_topic_edit', {'id': topic.id}) }}"
+             class="btn btn-default btn-sm">
+            <i class="fa fa-edit"></i>
+          </a>
+          {% if topic.isResolu %}
+            <a href="{{ path('ultranet_forum_topic_resolu', {'forum_name': forum.name, 'topic_title': topic.title, 'page': page, 'id': topic.id}) }}"
+               class="btn btn-default btn-sm">
+              <i class="fa fa-remove"></i> Marquer le sujet non résolu
+            </a>
+          {% else %}
+            <a href="{{ path('ultranet_forum_topic_resolu', {'forum_name': forum.name, 'topic_title': topic.title, 'page': page, 'id': topic.id}) }}"
+               class="pull-right btn btn-default btn-sm">
+              <i class="fa fa-check"></i> Marquer le sujet résolu
+            </a>
+          </p>
+        </div>
+      {% endif %}
+
+      <h1 class="col-md-12">{{ topic.title }}</h1>
+
+    {% endif %}
+  </div>
 
   <br>
 
   <div class="row">
 
-    {% for post in topic.posts %}
+    {% for post in posts %}
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
             <span><b>{{ post.createur.username }}</b></span>
+            <span class="pull-right">
+              {% if app.user is not null and post.createur.username==app.user.username %}
+                <a href="{{ path('ultranet_forum_post_edit', {'id': post.id, 'page': page}) }}#form"
+                   class="btn btn-default btn-sm">
+                  <i class="fa fa-edit"></i>
+                </a>
+              {% endif %}
+              <a href="{{ path('ultranet_forum_post_repondre', {'id': post.id, 'page':page}) }}#form"
+                 class="btn btn-default btn-sm">
+                <i class="fa fa-mail-reply"></i>
+              </a>
+            </span>
           </div>
           <div class="panel-body">
             <div class="col-md-1" style="border-right: 1px solid;">
@@ -37,9 +80,43 @@
         </div>
       </div>
     {% endfor %}
-    
+
     <div class="col-md-12">
-      {% include 'UltranetForumBundle:Post:formulaire.html.twig'%}
+      <div class="pagination">
+        <ul class="pagination">
+          {% if move_down <= 0 %}
+            <li class="disabled">
+              <span>&laquo;</span>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ path('ultranet_forum_topic_voir',
+              {'forum_name': forum.name, 'topic_title': topic.title, 'page': move_down}) }}">&laquo;</a>
+            </li>
+          {% endif %}
+
+          {% for p in range(1, nombrePage) %}
+            <li {% if p == page %} class="active" {% endif %}>
+              <a href="{{ path('ultranet_forum_topic_voir', {'forum_name': forum.name, 'topic_title': topic.title, 'page': p}) }}">{{ p }}</a>
+            </li>
+          {% endfor %}
+
+          {% if move_up > nombrePage %}
+            <li class="disabled">
+              <span>&raquo;</span>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ path('ultranet_forum_topic_voir',
+              {'forum_name': forum.name, 'topic_title': topic.title, 'page': move_up}) }}">&raquo;</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-12" id="form">
+      {% include 'UltranetForumBundle:Post:formulaire.html.twig' %}
     </div>
   </div>
 {% endblock %}

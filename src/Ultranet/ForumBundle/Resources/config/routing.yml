@@ -3,19 +3,51 @@ ultranet_forum_homepage:
     defaults: { _controller: UltranetForumBundle:Forum:index }
     
 ultranet_forum_topics:
-    path:     /{name}
-    defaults: { _controller: UltranetForumBundle:Forum:topics }
+    path:     /{forum_name}/{page}
+    defaults: { _controller: UltranetForumBundle:Topic:all }
     requirements:
-#        name: ([a-zA-Z0-9\-])+
+        page: \d+
+#        forum_name: ([a-zA-Z0-9\-])+
     
 ultranet_forum_topic_voir:
-    path:     /{forum_name}/topics/{topic_title}
+    path:     /{forum_name}/topics/{topic_title}/{page}
     defaults: { _controller: UltranetForumBundle:Topic:voir }
     requirements:
+        page: \d+
 #        forum_name: ([a-zA-Z0-9\-])+
 #        title_topic: ([a-zA-Z0-9\-])+
+
+ultranet_forum_topic_resolu:
+    path:     /{forum_name}/topics/{topic_title}/{page}/resolu/{id}
+    defaults: { _controller: UltranetForumBundle:Topic:resolu }
+    requirements:
+        page: \d+
+        id: \d+
+
+ultranet_forum_topic_edit:
+    path:     /topic/edit/{id}
+    defaults: { _controller: UltranetForumBundle:Topic:edit }
+    requirements:
+        id: \d+
     
 ultranet_forum_topic_add:
     path:     /topic/add
     defaults: { _controller: UltranetForumBundle:Topic:add }
-    
+
+ultranet_forum_post_edit:
+    path:     /post/edit/{id}/{page}
+    defaults: { _controller: UltranetForumBundle:Post:edit }
+    requirements:
+        id: \d+
+        page: \d+
+
+ultranet_forum_post_repondre:
+    path:     /post/repondre/{id}/{page}
+    defaults: { _controller: UltranetForumBundle:Post:repondre }
+    requirements:
+        id: \d+
+        page: \d+
+
+ultranet_forum_search:
+    path:     /search
+    defaults: { _controller: UltranetForumBundle:Forum:search }

@@ -1,0 +1,19 @@
+{% extends "UltranetForumBundle::layout.html.twig" %}
+
+{% block title %}
+  Résultats de la recherche - {{ parent() }}
+{% endblock %}
+
+{% block forum_content %}
+
+  <h1>Résultats pour <small>{{ searchPattern }}</small></h1>
+
+  {% for resultat in resultats %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{ resultat.title }}
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}

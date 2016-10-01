@@ -35,6 +35,13 @@ class Topic
      * @ORM\Column(name="topic_time", type="datetime")
      */
     private $topicTime;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_resolu", type="boolean")
+     */
+    private $isResolu = false ;
     
     /**
      * @ORM\ManyToOne(targetEntity="Ultranet\UserBundle\Entity\User")
@@ -43,7 +50,7 @@ class Topic
     private $createur;
     
     /**
-     * @ORM\OneToOne(targetEntity="Post")
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "remove"})
      */
     private $lastPost;
     
@@ -127,6 +134,30 @@ class Topic
     public function getTopicTime()
     {
         return $this->topicTime;
+    }
+
+    /**
+     * Set isResolu
+     *
+     * @param boolean $isResolu
+     *
+     * @return Topic
+     */
+    public function setIsResolu($isResolu)
+    {
+        $this->isResolu = $isResolu;
+
+        return $this;
+    }
+
+    /**
+     * Get isResolu
+     *
+     * @return boolean
+     */
+    public function getIsResolu()
+    {
+        return $this->isResolu;
     }
 
     /**

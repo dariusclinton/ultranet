@@ -2,6 +2,8 @@
 
 namespace Ultranet\ForumBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * TopicRepository
  *
@@ -10,4 +12,39 @@ namespace Ultranet\ForumBundle\Repository;
  */
 class TopicRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getTopics($nombreParPage, $page, $forum)
+  {
+    if ($page < 1) {
+      throw new \InvalidArgumentException("L'argument ne peut pas être inférieur à 1 (valeur : " . $page . ")");
+    }
+
+    // Construction de la requete
+    $query = $this->createQueryBuilder('t')
+      ->where('t.forum = :forum')
+      ->orderBy('t.topicTime', 'DESC')
+      ->setParameter('forum', $forum)
+      ->getQuery();
+
+    // On definit le forum a partir duquel commencer la liste
+    $query->setFirstResult(($page - 1) * $nombreParPage)
+      // Ainsi que le nombre de forum a afficher
+      ->setMaxResults($nombreParPage);
+
+    // On retourne l'objete Paginator correspondant a la requete
+    return new Paginator($query);
+  }
+
+  /**
+   * @param $like
+   * @return array
+   */
+  public function findLike($like)
+  {
+    $query = $this->createQueryBuilder('t')
+      ->where('t.title LIKE :like')
+      ->setParameter('like', $like)
+      ->getQuery();
+
+    return $query->getResult();
+  }
 }
