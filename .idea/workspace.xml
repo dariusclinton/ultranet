@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83e8575f-efa5-450f-a589-706091c5c9f8" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/Image.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/ImageUser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Formation.php" afterPath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Formation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Paiement.php" afterPath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Paiement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Schedule.php" afterPath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Schedule.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Form/ScheduleType.php" afterPath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Form/ScheduleType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Includes/header.html.twig" afterPath="$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Includes/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Controller/ProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/Institution.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/Institution.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Form/Type/InstitutionType.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Form/Type/InstitutionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Form/Type/ProfileFormType.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Form/Type/ProfileFormType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Form/UserType.php" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Form/UserType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Profile/edit_content.html.twig" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Profile/edit_content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Registration/register_content.html.twig" afterPath="$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Registration/register_content.html.twig" />
     </list>
     <ignored path="ultranet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,13 +35,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Institution.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/Institution.php">
+      <file leaf-file-name="ImageUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/ImageUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="71" column="33" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
+            <state relative-caret-position="585">
+              <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
               <folding>
-                <element signature="e#46#78#0#PHP" expanded="true" />
+                <element signature="e#45#77#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Formation/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Formation/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#12#28#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
+              <folding>
+                <element signature="e#46#59#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,11 +126,12 @@
         <option value="$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Profile/edit_content.html.twig" />
         <option value="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Formation.php" />
         <option value="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/Institution.php" />
-        <option value="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/Ultranet/CoreBundle/Form/ScheduleType.php" />
         <option value="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Schedule.php" />
         <option value="$PROJECT_DIR$/src/Ultranet/CoreBundle/Entity/Paiement.php" />
+        <option value="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/ImageUser.php" />
       </list>
     </option>
   </component>
@@ -112,9 +146,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1366" />
-    <option name="height" value="772" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -200,6 +234,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,9 +253,152 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Formation" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ultranet" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,12 +463,13 @@
       <workItem from="1475121425724" duration="5465000" />
       <workItem from="1475149162782" duration="1844000" />
       <workItem from="1475149000489" duration="8380000" />
-      <workItem from="1475186187174" duration="5617000" />
+      <workItem from="1475186187174" duration="6075000" />
+      <workItem from="1475309059178" duration="2493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38383000" />
+    <option name="totallyTimeSpent" value="41334000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -302,7 +481,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19472913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -341,20 +520,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Controller/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views/Collector/security.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -401,7 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -416,14 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/Image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -526,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Formation/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Resources/views/Security/login_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -593,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -636,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -644,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
           <caret line="119" column="33" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="329" column="59" selection-start-line="329" selection-start-column="59" selection-end-line="329" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,19 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
           <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
-          <folding>
-            <element signature="e#44#93#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
-          <folding>
-            <element signature="e#46#59#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -719,7 +850,53 @@
         <state relative-caret-position="225">
           <caret line="71" column="33" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
           <folding>
-            <element signature="e#46#78#0#PHP" expanded="true" />
+            <element signature="e#46#78#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
+          <folding>
+            <element signature="e#46#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ultranet/UserBundle/Entity/ImageUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Formation/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/Formation/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ultranet/CoreBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#28#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

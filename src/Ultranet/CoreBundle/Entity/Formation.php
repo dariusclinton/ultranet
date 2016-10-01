@@ -62,7 +62,7 @@ class Formation {
     /**
      * @var Ultranet\UserBundle\Entity\Image
      * 
-     * @ORM\OneToOne(targetEntity="Ultranet\UserBundle\Entity\Image", cascade={ "persist", "remove" })
+     * @ORM\OneToOne(targetEntity="ImageUser.php", cascade={ "persist", "remove" })
      * @ORM\JoinColumn(nullable=true)
      */
     protected $image;

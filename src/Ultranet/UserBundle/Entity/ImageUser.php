@@ -8,11 +8,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Image
  *
- * @ORM\Table(name="ultranet_image")
+ * @ORM\Table(name="ultranet_image_user")
  * @ORM\Entity(repositoryClass="Ultranet\UserBundle\Repository\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Image
+class ImageUser
 {
     /**
      * @var int
