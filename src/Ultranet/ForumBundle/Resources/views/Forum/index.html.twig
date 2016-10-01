@@ -38,11 +38,11 @@
                       <td>
                         <div class="row">
                           <div class="col-md-1">
-                            <i class="fa fa-comments-o fa-3x"></i>
+                            <i class="fa fa-comments-o fa-2x"></i>
                           </div>
                           <div class="col-md-11">
                             <h4>
-                              <a href="{{ path('ultranet_forum_topics', {'name': forum.name}) }}">{{ forum.name }}</a>
+                              <a href="{{ path('ultranet_forum_topics', {'forum_name': forum.name, 'page': 1}) }}">{{ forum.name }}</a>
                             </h4>
                             <p>{{ forum.description }}</p>
                           </div>

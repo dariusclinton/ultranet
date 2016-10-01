@@ -6,14 +6,14 @@
 
 <div class="form-group">
   {{ form_label(form.texte, 'Message', {'attr': {'class': 'control-label'}}) }}
-  {{ form_widget(form.texte, {'attr': {'class': 'form-control'}}) }}
+  {{ form_widget(form.texte, {'attr': {'class': 'form-control', 'rows': 5}}) }}
   {{ form_errors(form.texte, {'attr': {'class': 'alert alert-danger'}}) }}
 </div>
 
 {{ form_rest(form) }}
 
 <div class="form-group">
-  <input type="submit" value="Publier" class="btn btn-success">
+  <input type="submit" value="Commenter" class="btn btn-success">
 </div>
 
 {{ form_end(form) }}
