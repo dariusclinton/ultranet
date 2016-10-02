@@ -1,7 +1,34 @@
 {% extends 'UltranetCoreBundle::layout.html.twig' %}
 {% block title %}
-    {{ formation.name }} - {{ parent()}}
+    {{ formation.name }} - {{ parent() }}
 {% endblock %}
 {% block body_content %}
-    test 11
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>{{ formation.name }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="formation-image">
+                    {% if formation.image is not null %}
+                        <img class="card-img-top" src="{{ asset(formation.image.webPath) }}"
+                             alt="image formation">
+                    {% else %}
+                        <img class="card-img-top"
+                             src="{{ asset('uploads/images/formations/formation_default.jpg') }}"
+                             alt="image formation">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h4>{{ formation.description }}</h4>
+                <h6>{{ formation.presentation }}</h6>
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}

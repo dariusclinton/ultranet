@@ -1,6 +1,6 @@
 {% extends 'UltranetCoreBundle::layout.html.twig' %}
 {% block title %}
-    Accueil - {{ parent()}}
+    Accueil - {{ parent() }}
 {% endblock %}
 {% block body_content %}
     {% include 'UltranetCoreBundle:Includes:banner.html.twig' %}
@@ -11,74 +11,35 @@
                 <div class="col-lg-12 col-md-12">
                     <h1 class="page-header">
                         Nos formations
+                        <small>populaires</small>
                     </h1>
                 </div>
             </div>
             <div class="row formation">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{asset('images/parallax1.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">{{ "Titre de la formation et des tests" | truncate(30)}}</h4>
-                            <p class="card-text">
-                                {{ "Some quick example text to build on the card title and make up the bulk of the card's content the card's contentthe card's content ." | truncate(90) }}
-                            </p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
+                {% if formations is not empty %}
+                    {% for formation in formations %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                {% if formation.image is not null %}
+                                    <img class="card-img-top" src="{{ asset(formation.image.webPath) }}"
+                                         alt="image formation">
+                                {% else %}
+                                    <img class="card-img-top"
+                                         src="{{ asset('uploads/images/formations/formation_default.jpg') }}"
+                                         alt="image formation">
+                                {% endif %}
+                                <div class="card-block">
+                                    <h4 class="card-title">{{ formation.name | truncate(30) }}</h4>
+                                    <p class="card-text">
+                                        {{ formation.description | truncate(90) }}
+                                    </p>
+                                    <a href=" {{ path('ultranet_core_show_formationpage', {'slug' : formation.slug}) }} "
+                                       class="btn btn-success">Lire plus ...</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row formation">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <!-- /.row -->
 

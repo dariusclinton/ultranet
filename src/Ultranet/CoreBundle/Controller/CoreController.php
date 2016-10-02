@@ -8,6 +8,9 @@ class CoreController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('UltranetCoreBundle:Core:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $formationRep = $em->getRepository('UltranetCoreBundle:Formation');
+        $formations = $formationRep->findBy(array(), null, 6);
+        return $this->render('UltranetCoreBundle:Core:index.html.twig', array('formations' => $formations));
     }
 }
