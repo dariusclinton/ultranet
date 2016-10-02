@@ -23,8 +23,13 @@
                         <a href=" {{ path('ultranet_core_homepage') }} "
                            class=" {% if app.request.attributes.get('_route') == 'ultranet_core_homepage' %}{{ "active" }}{% endif %} ">Accueil</a>
                     </li>
+                    {#<li>
+                        <a href="{{ path('ultranet_core_formationspage') }}"
+                           class=" {% if app.request.attributes.get('_route') == 'ultranet_core_formationspage' %}{{ "active" }}{% endif %} ">Formations</a>
+                    </li>#}
                     <li>
-                        <a href="#">Services</a>
+                        <a href="{{ path('ultranet_core_formationspage') }}"
+                           class=" {% if app.request.attributes.get('_route') == 'ultranet_core_formationspage' %}{{ "active" }}{% endif %} ">Formations</a>
                     </li>
                     <li>
                         <a href=" {{ path('ultranet_core_contactpage') }} "

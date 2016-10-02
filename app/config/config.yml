@@ -39,6 +39,13 @@ twig:
     form_themes:
             - 'bootstrap_3_layout.html.twig'
 
+# services for twig extensions
+services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
 # Doctrine Configuration
 doctrine:
     dbal:

@@ -1,0 +1,55 @@
+{% if params.pagination.pages_count > 1 %}
+    <div class="pager-wrappper clearfix">
+
+        <div class="pager-innner">
+
+            <div class="flex-row flex-align-middle">
+
+                <div class="flex-column flex-sm-12">
+                    Resultats de {{ ((params.pagination.page -1)*params.pagination.max_per_page)+1 }}
+                    à
+                    {% if (params.pagination.page*params.pagination.max_per_page) > params.pagination.profs_count %}
+                        {{ params.pagination.profs_count }}
+                    {% else %}
+                        {{ params.pagination.page*params.pagination.max_per_page }}
+                    {% endif %}
+                    sur {{ params.pagination.profs_count }}
+                </div>
+
+                <div class="flex-column flex-sm-12">
+                    <nav class="pager-right">
+                        <ul class="pagination">
+                            {% if params.pagination.page > 1 %}
+                                <li>
+                                    <a href="{{ path(params.pagination.route, params.pagination.route_params | merge( {
+                                        'page':  params.pagination.page-1})) }}" title="precedent">
+                                        &laquo;
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% for p in range(max(params.pagination.page-2, 1), min(params.pagination.page+2, params.pagination.pages_count)) %}
+
+                                <li {% if p == params.pagination.page %}class="active"{% endif %}>
+                                    <a href="{{ path(params.pagination.route, params.pagination.route_params | merge({'page':p})) }}">{{ p }}
+                                    </a>
+                                </li>
+
+                            {% endfor %}
+                            {% if params.pagination.page < params.pagination.pages_count %}
+                                <li>
+                                    <a href="{{ path(params.pagination.route, params.pagination.route_params | merge({
+                                        'page':  params.pagination.page+1})) }}" title="suivant">&raquo;
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endif %}

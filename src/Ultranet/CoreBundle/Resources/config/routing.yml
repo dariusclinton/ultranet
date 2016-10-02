@@ -5,3 +5,13 @@ ultranet_core_homepage:
 ultranet_core_contactpage:
     path:     /contact
     defaults: { _controller: UltranetCoreBundle:Contact:index }
+
+
+ultranet_core_formationspage:
+    path:     /formations
+    defaults: { _controller: UltranetCoreBundle:Formation:index }
+
+
+ultranet_core_show_formationpage:
+    path:     /formations/{slug}
+    defaults: { _controller: UltranetCoreBundle:Formation:show }
