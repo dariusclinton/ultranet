@@ -60,9 +60,9 @@ class Formation {
     private $createdDate;
 
     /**
-     * @var Ultranet\UserBundle\Entity\Image
+     * @var Ultranet\CoreBundle\Entity\ImageFormation
      * 
-     * @ORM\OneToOne(targetEntity="ImageUser.php", cascade={ "persist", "remove" })
+     * @ORM\OneToOne(targetEntity="Ultranet\CoreBundle\Entity\ImageFormation", cascade={ "persist", "remove" })
      * @ORM\JoinColumn(nullable=true)
      */
     protected $image;

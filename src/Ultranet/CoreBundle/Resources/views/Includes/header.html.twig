@@ -45,22 +45,22 @@
                                 <b class="fa fa-caret-down"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href=" {{ path('fos_user_profile_show') }} ">Profile </a>
+                                </li>
+                                <li>
                                     <a href=" {{ path('fos_user_security_logout') }} ">Se déconnecter</a>
-                                </li>
-                                <li>
-                                    <a href=" {{ path('fos_user_profile_show') }} "> profile </a>
-                                </li>
-                                <li>
-                                    <a href="">Formations</a>
                                 </li>
                             </ul>
                         </li>
                     {% else %}
                         <li>
-                            <a href=" {{ path('fos_user_security_login') }} " class=" {% if app.request.attributes.get('_route') == 'fos_user_security_login' %}{{ "active" }}{% endif %} " >Se connecter</a>
+                            <a href=" {{ path('fos_user_security_login') }} "
+                               class=" {% if app.request.attributes.get('_route') == 'fos_user_security_login' %}{{ "active" }}{% endif %} ">Se
+                                connecter</a>
                         </li>
                         <li>
-                            <a href="{{ path('fos_user_registration_register') }}" class=" {% if app.request.attributes.get('_route') == 'fos_user_registration_register' %}{{ "active" }}{% endif %} ">S'inscrire</a>
+                            <a href="{{ path('fos_user_registration_register') }}"
+                               class=" {% if app.request.attributes.get('_route') == 'fos_user_registration_register' %}{{ "active" }}{% endif %} ">S'inscrire</a>
                         </li>
                     {% endif %}
                 </ul>

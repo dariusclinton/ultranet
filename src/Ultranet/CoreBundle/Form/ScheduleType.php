@@ -32,6 +32,7 @@ class ScheduleType extends AbstractType
                 'placeholder' => 'jour',
                 'multiple' => false,
                 'required' => true,
+                'label' => false,
             ))
             ->add('tranche', ChoiceType::class, array(
                 'choices' => array(
@@ -45,14 +46,16 @@ class ScheduleType extends AbstractType
                 ),
                 'multiple' => false,
                 'required' => true,
-                'placeholder' => 'tranche horaire'
+                'placeholder' => 'tranche horaire',
+                'label' => false,
             ))
             ->add('formation', EntityType::class, array(
                 'class' => 'Ultranet\CoreBundle\Entity\Formation',
                 'choice_label' => 'name',
                 'required' => true,
-                'placeholder'=> 'formation',
+                'placeholder' => 'formation',
                 'multiple' => false,
+                'label' => false,
             ))
             ->add('level', ChoiceType::class, array(
                 'choices' => array(
@@ -62,12 +65,13 @@ class ScheduleType extends AbstractType
                     'debutant' => 'debutant',
                     'moyen' => 'moyen',
                     'haut niveau' => 'haut niveau',
+                    'label' => false,
                 ),
                 'placeholder' => 'niveau',
                 'multiple' => false,
-                'required' => false
-            ))
-        ;
+                'required' => false,
+                'label' => false,
+            ));
     }
 
     /**

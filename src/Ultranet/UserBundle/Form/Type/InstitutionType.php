@@ -24,6 +24,8 @@ class InstitutionType extends AbstractType
             ->remove('subnames')
             ->remove('phoneNumber')
             ->remove('quarter')
+            ->remove('image')
+            ->remove('username')
             ->add('institution', EntityType::class, array(
                 'class' => 'UltranetUserBundle:Institution',
                 'query_builder' => function (EntityRepository $er) {

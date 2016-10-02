@@ -1,16 +1,18 @@
 <?php
 
 namespace Ultranet\UserBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Image
  *
  * @ORM\Table(name="ultranet_image_user")
- * @ORM\Entity(repositoryClass="Ultranet\UserBundle\Repository\ImageRepository")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="Ultranet\UserBundle\Repository\ImageUserRepository")
+ * @Vich\Uploadable
  */
 class ImageUser
 {
@@ -24,150 +26,115 @@ class ImageUser
     private $id;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="created_at", type="datetime")
      */
-    private $url;
+    private $createdAt;
+
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="alt", type="string", length=255)
+     * @Vich\UploadableField(mapping="image_user", fileNameProperty="imageName")
+     * @Assert\Image()
+     * @var File
      */
-    private $alt;
+    private $imageFile;
 
     /**
-   * @Assert\Image(maxSize="2M", maxSizeMessage="La taille du fichier doit être < 2Mo")
-   */
-  private $file;
-  
-  private $tmpFilename;
-    
+     * @ORM\Column(name="image_name", type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-
+    
     /**
-     * Set url
+     * Set imageName
      *
-     * @param string $url
+     * @param string $imageName
      *
-     * @return Image
+     * @return ImageUser
      */
-    public function setUrl($url)
+    public function setImageName($imageName)
     {
-        $this->url = $url;
+        $this->imageName = $imageName;
 
         return $this;
     }
 
     /**
-     * Get url
+     * Get imageName
      *
      * @return string
      */
-    public function getUrl()
+    public function getImageName()
     {
-        return $this->url;
+        return $this->imageName;
     }
 
     /**
-     * Set alt
-     *
-     * @param string $alt
-     *
-     * @return Image
+     * @return File
      */
-    public function setAlt($alt)
+    public function getImageFile()
     {
-        $this->alt = $alt;
-
-        return $this;
+        return $this->imageFile;
     }
 
     /**
-     * Get alt
-     *
-     * @return string
+     * @param File $imageFile
+     * @return $this
      */
-    public function getAlt()
+    public function setImageFile(File $imageFile)
     {
-        return $this->alt;
-    }
-    
-    function getFile() {
-      return $this->file;
-    }
+        $this->imageFile = $imageFile;
 
-    function setFile(UploadedFile $file) {
-      $this->file = $file;
-      
-      if (null !== $this->url) {
-        $this->tmpFilename = $this->url;
-        
-        $this->url = null;
-        $this->alt = null;
-      }
-    }
-
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload() {
-      if (null === $this->file) {
-        return;
-      }
-      
-      $this->url = $this->file->guessExtension();
-      $this->alt = $this->file->getClientOriginalName();
-    }
-    
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
-    public function upload() {
-      if (null === $this->file) {
-        return;
-      }
-      
-      if (null !== $this->tmpFilename) {
-        $oldFile = $this->getUploadRootDir().'/'.$this->getId().'.'.$this->tmpFilename;
-        if (file_exists($oldFile)) {
-          unlink($oldFile);
+        if ($imageFile){
+            $this->createdAt = new \DateTime('now');
         }
-      }
-      
-      $this->file->move($this->getUploadRootDir(), $this->getId().'.'.$this->url);
-    }
-    
-    /**
-     * @ORM\PostRemove()
-     */
-    public function removeUpload() {
-      if (file_exists($this->tmpFilename)) {
-        unlink($this->tmpFilename);
-      }
-    }
-    
-    public function getUploadDir() {
-     return 'uploads/images/profiles';
-    }
-    
-    public function getUploadRootDir() {
-      return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-    
-    public function getWebPath() {
-      return $this->getUploadDir() . '/' . $this->getId() . '.' . $this->getUrl();
+
+        return $this;
     }
 
+
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return ImageUser
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebPath() {
+        return 'uploads/images/profiles/'.$this->getImageName();
+    }
 }

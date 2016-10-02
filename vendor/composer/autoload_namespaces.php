@@ -9,6 +9,8 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'SensioLabs\\Security' => array($vendorDir . '/sensiolabs/security-checker'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'ProxyManager\\' => array($vendorDir . '/ocramius/proxy-manager/src'),
+    'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
     'Gedmo\\' => array($vendorDir . '/gedmo/doctrine-extensions/lib'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),

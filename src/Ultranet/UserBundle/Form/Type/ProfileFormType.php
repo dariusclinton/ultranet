@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Ultranet\UserBundle\Form\ImageUserType;
 
 /*
  * This file is part of the FOSUserBundle package.
@@ -16,31 +17,40 @@ use Symfony\Component\Form\FormBuilderInterface;
  * file that was distributed with this source code.
  */
 
-class ProfileFormType extends AbstractType {
+class ProfileFormType extends AbstractType
+{
 
-    public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name', TextType::class)
-                ->add('subnames', TextType::class)
-                ->add('phoneNumber', TextType::class)
-                ->add('city', TextType::class)
-                ->add('quarter', TextType::class)
-                ->add('birdayDate', BirthdayType::class, array(
-                    'years' => range(1950, 2006),
-                    'placeholder' => '--',
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('image', ImageUserType::class,
+                array(
+                    'required' => false,
                 ))
-                ;
+            ->add('name', TextType::class)
+            ->add('subnames', TextType::class)
+            ->add('phoneNumber', TextType::class)
+            ->add('city', TextType::class)
+            ->add('quarter', TextType::class)
+            ->add('birdayDate', BirthdayType::class, array(
+                'years' => range(1950, 2006),
+                'placeholder' => '--',
+            ));
     }
 
     // BC for SF < 3.0
-    public function getName() {
+    public function getName()
+    {
         return $this->getBlockPrefix();
     }
 
-    public function getParent() {
+    public function getParent()
+    {
         return 'FOS\UserBundle\Form\Type\ProfileFormType';
     }
 
-    public function getBlockPrefix() {
+    public function getBlockPrefix()
+    {
         return 'ultranet_user_profile';
     }
 

@@ -10,11 +10,20 @@
     <div class="" id="profile">
         <div class="card hovercard">
             <div class="card-background">
-                <img class="card-bkimg" alt="" src=" {{ asset('uploads/images/profiles/1.jpg') }} ">
+                {% if app.user.image is not null %}
+                    <img class="card-bkimg" alt="" src=" {{ asset(app.user.image.webPath) }} ">
+                {% else %}
+                    <img alt="" src=" {{ asset("uploads/images/profiles/icon-user-default.png") }} ">
+                {% endif %}
                 <!-- http://lorempixel.com/850/280/people/9/ -->
             </div>
             <div class="useravatar">
-                <img alt="" src=" {{ asset('uploads/images/profiles/1.jpg') }} ">
+                {% if app.user.image is not null %}
+                    <img alt="" src=" {{ asset(app.user.image.webPath) }} ">
+
+                {% else %}
+                    <img alt="" src=" {{ asset("uploads/images/profiles/icon-user-default.png") }} ">
+                {% endif %}
             </div>
             <div class="card-info"> 
                 <span class="card-title"> {{ app.user.subnames ~ " " ~ app.user.name | upper }} <br>
