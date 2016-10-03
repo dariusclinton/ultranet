@@ -22,10 +22,10 @@ class ContactController extends Controller
             $message = $request->query->get('message');
 
             $swiftMessage = \Swift_Message::newInstance()
-                ->setContentType('text/html')
+                ->setContentType('text/plain')
                 ->setSubject('ConctactUser')
                 ->setFrom($email)
-                ->setTo('loickaptue@yahoo.fr')
+                ->setTo('ivanokaptue@gmail.com')
                 ->setBody('Message venant de '.$name.' \n'.$message);
 
             $mailer = $this->get('mailer');

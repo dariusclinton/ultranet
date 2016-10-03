@@ -5,8 +5,10 @@ parameters:
     database_name: ultranet
     database_user: root
     database_password: null
+
     mailer_transport: gmail
-    mailer_host: 127.0.0.1
+    mailer_host: smtp.gmail.com
     mailer_user: ivankaptue@gmail.com
     mailer_password: ivanokaptue93
+
     secret: 9184515ebdb959ca7f067f09a80f7b7359ab916a

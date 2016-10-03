@@ -26,10 +26,9 @@
                 {% endif %}
             </div>
             <div class="card-info"> 
-                <span class="card-title"> {{ app.user.subnames ~ " " ~ app.user.name | upper }} <br>
-                    <a href=" {{ path('fos_user_profile_edit') }} ">Modifier mes informations</a>
+                <span class="card-title"> {{ app.user.subnames | upper ~ " " ~ app.user.name | upper }} <br>
                 </span>
-
+                <a href=" {{ path('fos_user_profile_edit') }} " class="btn btn-success" style="margin-top: 0.4%;">Modifier mes informations</a>
             </div>
         </div>
         <div class="btn-pref btn-group btn-group-justified btn-group-lg animated fadeIn" role="group" aria-label="...">
