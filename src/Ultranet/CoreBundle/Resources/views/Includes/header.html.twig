@@ -29,7 +29,7 @@
                     </li>#}
                     <li>
                         <a href="{{ path('ultranet_core_formationspage') }}"
-                           class=" {% if app.request.attributes.get('_route') == 'ultranet_core_formationspage' %}{{ "active" }}{% endif %} ">Formations</a>
+                           class=" {% if app.request.attributes.get('_route') == 'ultranet_core_formationspage' or app.request.attributes.get('_route') == 'ultranet_core_show_formationpage'  %}{{ "active" }}{% endif %} ">Formations</a>
                     </li>
                     <li>
                         <a href=" {{ path('ultranet_core_contactpage') }} "

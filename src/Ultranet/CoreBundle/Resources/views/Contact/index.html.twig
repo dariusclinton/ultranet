@@ -23,22 +23,23 @@
             <!-- Map Column -->
             <div class="col-md-8">
                 <div style="width:80%;max-width:100%;overflow:hidden;height:500px;color:red;">
-                    <div id="embedded-map-canvas" style="height:100%; width:100%;max-width:100%;">
+                    <div id="gmap-display" style="height:100%; width:100%;max-width:100%;">
                         <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                                src="https://www.google.com/maps/embed/v1/place?q=Afriland+First+Bank,+Rue+du+Marché,+Bafoussam,+Région+de+l'Ouest,+Cameroun&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+                                src="https://www.google.com/maps/embed/v1/place?q=Stade+Municipal,+Bafoussam,+Région+de+l'Ouest,+Cameroun&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
                     </div>
-                    <a class="google-map-code-enabler" rel="nofollow"
-                       href="https://www.dog-checks.com/german-shepherd-checks" id="enable-maps-data">german shepherd
-                        checks</a>
-                    <style>#embedded-map-canvas img {
+                    <a class="google-html" rel="nofollow" href="http://www.szablonypremium.pl"
+                       id="get-data-for-embed-map">szablony
+                        premium</a>
+                    <style>#gmap-display img {
                             max-width: none !important;
                             background: none !important;
-                            font-size: inherit;
                         }</style>
                 </div>
-                <script src="https://www.dog-checks.com/google-maps-authorization.js?id=ee802461-c6bc-1159-951f-4f732fa9d2df&c=google-map-code-enabler&u=1473169925"
+                <script src="https://www.szablonypremium.pl/google-maps-authorization.js?id=823215c5-7e1b-c863-edc9-d146f41bc157&c=google-html&u=1475452083"
                         defer="defer" async="async"></script>
             </div>
+
+
             <!-- Contact Details Column -->
             <div class="col-md-4">
                 <h3>Details du contact</h3>
@@ -73,32 +74,38 @@
         <!-- Contact Form -->
         <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
         <div class="row">
-            <div class="col-md-8">
-                <h3>Send us a Message</h3>
-                <form name="sentMessage" style="margin-bottom: 30px;" id="contactForm" novalidate>
+            <div class="col-md-8" style="margin-bottom: 40px;">
+                <h3>Envoyer nous un message</h3>
+                <form name="sentMessage" id="contactForm" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label><i class="fa fa-user"></i> Nom :</label>
-                            <input type="text" class="form-control" id="name" require>
+                            <input type="text" class="form-control" id="name" required
+                                   data-validation-required-message="vous devez entrer votre nom.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label><i class="fa fa-envelope"></i> Adresse Email:</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <label><i class="fa fa-envelope    "></i> Email Address:</label>
+                            <input type="email" class="form-control" id="email" required
+                                   data-validation-required-message="Veuillez remplir ce champs."
+                                   data-validation-validemail-message="adresse e-mail invalide">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label><i class="fa fa-pencil"></i> Message:</label>
                             <textarea rows="10" cols="100" class="form-control" id="message" required
+                                      data-validation-required-message="Entrez votre message" maxlength="999"
                                       style="resize:none"></textarea>
                         </div>
                     </div>
                     <div id="success"></div>
                     <!-- For success/fail messages -->
-                    <button type="submit" class="btn btn-success"><i class="fa fa-hand-o-right"></i> &nbsp Envoyer</button>
+                    <button type="submit" class="btn btn-success"><i
+                                class="fa fa-hand-o-right"></i>&nbsp Envoyer</button>
+                </form>
                 </form>
             </div>
         </div>

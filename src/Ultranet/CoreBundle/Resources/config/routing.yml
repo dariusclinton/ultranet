@@ -15,3 +15,8 @@ ultranet_core_formationspage:
 ultranet_core_show_formationpage:
     path:     /formations/{slug}
     defaults: { _controller: UltranetCoreBundle:Formation:show }
+
+ultranet_core_contact_formpage:
+    path:     /contact/form
+    defaults: { _controller: UltranetCoreBundle:Contact:form }
+    methods: [POST]

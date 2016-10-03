@@ -3,13 +3,28 @@
     {{ formation.name }} - {{ parent() }}
 {% endblock %}
 {% block body_content %}
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <br>
         <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><a href=" {{ path("ultranet_core_homepage") }} "> <i class="fa fa-home"></i> Accueil</a>
+                    </li>
+                    <li><a href="{{ path('ultranet_core_formationspage') }}">Formations</a></li>
+                    <li class="active">{{ formation.name }}</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row" style="margin-bottom: 20px;">
             <div class="col-md-12 text-center">
                 <h1>{{ formation.name }}</h1>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 30px;">
             <div class="col-md-4">
                 <div class="formation-image">
                     {% if formation.image is not null %}

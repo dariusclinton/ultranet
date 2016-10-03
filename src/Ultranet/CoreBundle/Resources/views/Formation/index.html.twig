@@ -18,107 +18,35 @@
         </div>
         <!-- /.row -->
 
+        <div class="row formation">
+            {% if formations is not empty %}
+                {% for formation in formations %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            {% if formation.image is not null %}
+                                <img class="card-img-top" src="{{ asset(formation.image.webPath) }}"
+                                     alt="image formation">
+                            {% else %}
+                                <img class="card-img-top"
+                                     src="{{ asset('uploads/images/formations/formation_default.jpg') }}"
+                                     alt="image formation">
+                            {% endif %}
+                            <div class="card-block">
+                                <h4 class="card-title">{{ formation.name | truncate(33) }}</h4>
+                                <p class="card-text">
+                                    {{ formation.description | truncate(130) }}
+                                </p>
+                                <a href=" {{ path('ultranet_core_show_formationpage', {'slug' : formation.slug}) }} "
+                                   class="btn btn-success">Lire plus ...</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/chi.jpg') }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-success">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
